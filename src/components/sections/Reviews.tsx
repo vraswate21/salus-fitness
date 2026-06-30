@@ -7,51 +7,51 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const REVIEWS = [
   {
-    name: "Rohan Patil",
+    name: "Ravi Kumar",
     rating: 5,
     date: "2 weeks ago",
-    text: "World-class gym. The equipment is imported and top quality. Trainers are incredibly knowledgeable. Lost 12 kg in 3 months — results I never got anywhere else.",
-    initials: "RP",
+    text: "Best gym in Hyderabad, no doubt. Equipment is top quality and the trainers are extremely knowledgeable. Lost 10 kg in 3 months — results I never got anywhere else.",
+    initials: "RK",
     color: "#D4AF37",
   },
   {
-    name: "Sneha Kulkarni",
+    name: "Priya Reddy",
     rating: 5,
     date: "1 month ago",
-    text: "As a woman, I always wanted a safe and comfortable gym. Salus Fitness is exactly that — welcoming, clean, and the coaches here are amazing. Best decision ever.",
-    initials: "SK",
+    text: "Very clean and well-maintained gym. The coaches are supportive and the environment is welcoming. I feel so comfortable here. Highly recommend to everyone!",
+    initials: "PR",
     color: "#F472B6",
   },
   {
-    name: "Arjun Deshmukh",
+    name: "Aakash Rao",
     rating: 5,
     date: "3 weeks ago",
-    text: "Annual plan is worth every rupee. The AC, the music, the cleanliness — everything is perfect. Gained 8 kg of clean muscle in 4 months. Highly recommend.",
-    initials: "AD",
+    text: "Annual plan is absolutely worth it. AC facility, great music, excellent cleanliness. Gained solid muscle in 4 months with the trainer's guidance. 10/10.",
+    initials: "AR",
     color: "#D4AF37",
   },
   {
-    name: "Meera Joshi",
+    name: "Divya Sharma",
     rating: 5,
     date: "2 months ago",
-    text: "The personalized diet plan was a game-changer. Combined with the HIIT sessions, I've completely transformed. Trainers actually track your progress and push you.",
-    initials: "MJ",
+    text: "The diet plan combined with the workout sessions has been a game-changer for me. Trainers track your progress and genuinely push you to be better. Love it here.",
+    initials: "DS",
     color: "#60A5FA",
   },
   {
-    name: "Kiran Sharma",
+    name: "Suresh Naidu",
     rating: 5,
     date: "1 week ago",
-    text: "Best gym in the city, no competition. CrossFit area is excellent and trainer Rahul sir motivates you like no other. 10/10. Tell all your friends.",
-    initials: "KS",
+    text: "Amazing gym on Green Hills Colony Road. Very affordable membership and the facilities are premium. The free trial session convinced me instantly. Great place!",
+    initials: "SN",
     color: "#D4AF37",
   },
   {
-    name: "Pooja Nair",
+    name: "Kavitha Menon",
     rating: 5,
     date: "3 months ago",
-    text: "I was a complete beginner and felt so welcome. Six months in and I've completely changed my body and mindset. The community here is genuinely special.",
-    initials: "PN",
+    text: "Started as a complete beginner and felt so welcome from day one. Six months later my body and confidence have completely transformed. The community is special.",
+    initials: "KM",
     color: "#A78BFA",
   },
 ];
@@ -101,18 +101,25 @@ export function Reviews() {
             className="flex-shrink-0 glass border border-[rgba(255,255,255,0.05)] rounded-2xl px-5 py-4 md:px-6 md:py-5 flex items-center gap-4 md:gap-5"
           >
             <div className="text-center">
-              <div className="font-display font-black text-4xl text-white leading-none tracking-[-0.03em]">4.9</div>
+              <div className="font-display font-black text-4xl text-white leading-none tracking-[-0.03em]">4.5</div>
               <div className="flex justify-center mt-1.5 mb-1">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={10} fill="#D4AF37" className="text-[#D4AF37]" />
+                  <Star key={i} size={10} fill={i < 4 ? "#D4AF37" : "none"} strokeWidth={i < 4 ? 0 : 1.5} className={i < 4 ? "text-[#D4AF37]" : "text-[#D4AF37]"} />
                 ))}
               </div>
               <div className="font-body text-[#444] text-[10px] tracking-wider">Google Rating</div>
             </div>
             <div className="w-px h-10 bg-[#1A1A1A]" />
             <div className="text-center">
-              <div className="font-display font-black text-2xl text-white leading-none tracking-[-0.02em]">500+</div>
-              <div className="font-body text-[#444] text-[10px] tracking-wider mt-1.5">Reviews</div>
+              <a
+                href="https://maps.google.com/maps?q=Salus+Fitness+Gym+Hyderabad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-80 transition-opacity"
+              >
+                <div className="font-display font-black text-2xl text-white leading-none tracking-[-0.02em]">185</div>
+                <div className="font-body text-[#444] text-[10px] tracking-wider mt-1.5">Google Reviews</div>
+              </a>
             </div>
           </motion.div>
         </div>

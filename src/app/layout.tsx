@@ -23,7 +23,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Salus Fitness | Premium Gym & Cardio Center",
   description:
-    "Salus Fitness — A perfect destination for your health. Premium gym & cardio center for men & women. Join 5000+ members transforming their bodies.",
+    "Salus Fitness — Premium gym & cardio center in Hyderabad, Telangana. Green Hills Colony Rd No. 3. 4.5★ on Google · 185 reviews. Join 5000+ members transforming their bodies.",
   keywords: [
     "gym", "fitness", "cardio", "Salus Fitness", "personal training",
     "weight loss", "muscle building", "HIIT", "CrossFit", "luxury gym",

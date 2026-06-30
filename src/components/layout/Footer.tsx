@@ -133,14 +133,19 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-[#444]">
+                <a
+                  href="https://maps.google.com/maps?q=Salus+Fitness+Gym+Green+Hills+Colony+Rd+Hyderabad"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-[#444] hover:text-[#D4AF37] transition-colors duration-300"
+                >
                   <MapPin size={13} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
                   <div className="font-body text-sm leading-relaxed">
-                    Salus Fitness Gym
+                    Green Hills Colony Rd No. 3
                     <br />
-                    <span className="text-[#333] text-xs">(Walk in or call for directions)</span>
+                    <span className="text-[#333] text-xs">Hyderabad, Telangana</span>
                   </div>
-                </div>
+                </a>
               </li>
             </ul>
           </motion.div>
@@ -180,6 +185,26 @@ export function Footer() {
             </div>
           </motion.div>
         </div>
+
+        {/* Google Maps embed */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
+          className="mb-10 rounded-2xl overflow-hidden border border-[#1A1A1A]"
+        >
+          <iframe
+            src="https://maps.google.com/maps?q=9G6W%2B7FM+Hyderabad&output=embed"
+            width="100%"
+            height="220"
+            style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1)" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Salus Fitness Gym Location"
+          />
+        </motion.div>
 
         {/* Bottom bar */}
         <div className="border-t border-[#0E0E0E] py-6 flex flex-col md:flex-row items-center justify-between gap-3">

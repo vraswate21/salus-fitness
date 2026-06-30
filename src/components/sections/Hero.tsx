@@ -162,7 +162,7 @@ export function Hero() {
           className="flex items-center gap-4 mb-10"
         >
           <span className="w-10 h-px bg-[#D4AF37]" />
-          <span className="eyebrow opacity-80">Since 2016 · Premium Gym & Cardio · Nagpur</span>
+          <span className="eyebrow opacity-80">Since 2016 · Premium Gym & Cardio · Hyderabad</span>
           <span className="w-10 h-px bg-[#D4AF37]" />
         </motion.div>
 
