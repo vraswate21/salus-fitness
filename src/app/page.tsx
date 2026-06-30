@@ -15,10 +15,12 @@ import { AIChat } from "@/components/ui/AIChat";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { Cursor } from "@/components/ui/Cursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { StructuredData } from "@/components/seo/StructuredData";
 
 export default function Home() {
   return (
     <SmoothScroll>
+      <StructuredData />
       <Cursor />
       <ScrollProgress />
       <Navbar />

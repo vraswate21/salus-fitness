@@ -166,31 +166,31 @@ export function Hero() {
           <span className="w-10 h-px bg-[#D4AF37]" />
         </motion.div>
 
-        {/* Headline line 1 */}
-        <div className="overflow-hidden mb-1">
-          <motion.h1
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1.1, delay: 0.55, ease: [0.16,1,0.3,1] }}
-            className="font-display font-black leading-[0.88] tracking-[-0.03em] text-white"
-            style={{ fontSize: "clamp(44px,12vw,190px)" }}
-          >
-            TRANSFORM
-          </motion.h1>
-        </div>
-
-        {/* Headline line 2 */}
-        <div className="overflow-hidden mb-10">
-          <motion.h1
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1.1, delay: 0.7, ease: [0.16,1,0.3,1] }}
-            className="font-display font-black leading-[0.88] tracking-[-0.03em] text-gradient-gold"
-            style={{ fontSize: "clamp(44px,12vw,190px)" }}
-          >
-            YOUR BODY
-          </motion.h1>
-        </div>
+        {/* Headline — single h1 for SEO */}
+        <h1 className="mb-10" aria-label="Transform Your Body at Salus Fitness Gym Hyderabad">
+          <div className="overflow-hidden mb-1">
+            <motion.span
+              initial={{ y: "110%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1.1, delay: 0.55, ease: [0.16,1,0.3,1] }}
+              className="block font-display font-black leading-[0.88] tracking-[-0.03em] text-white"
+              style={{ fontSize: "clamp(44px,12vw,190px)" }}
+            >
+              TRANSFORM
+            </motion.span>
+          </div>
+          <div className="overflow-hidden">
+            <motion.span
+              initial={{ y: "110%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1.1, delay: 0.7, ease: [0.16,1,0.3,1] }}
+              className="block font-display font-black leading-[0.88] tracking-[-0.03em] text-gradient-gold"
+              style={{ fontSize: "clamp(44px,12vw,190px)" }}
+            >
+              YOUR BODY
+            </motion.span>
+          </div>
+        </h1>
 
         {/* Sub copy */}
         <motion.p

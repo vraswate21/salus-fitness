@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Phone, MapPin, Clock, ExternalLink, MessageCircle, Mail } from "lucide-react";
 
 const QUICK_LINKS = [
@@ -185,6 +186,35 @@ export function Footer() {
             </div>
           </motion.div>
         </div>
+
+        {/* SEO Pages */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="border-t border-[#0E0E0E] pt-8 pb-4 mb-8"
+        >
+          <h3 className="eyebrow text-[9px] opacity-40 mb-5">Explore Salus Fitness</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "Gym in Hyderabad",         href: "/gym-in-hyderabad" },
+              { label: "Premium AC Gym",            href: "/premium-ac-gym" },
+              { label: "Personal Training",         href: "/personal-training" },
+              { label: "Women's Fitness",           href: "/women-fitness" },
+              { label: "Weight Loss Program",       href: "/weight-loss-program" },
+              { label: "Muscle Building Program",   href: "/muscle-building-program" },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="font-body text-[#333] hover:text-[#D4AF37] text-xs border border-[#111] hover:border-[rgba(212,175,55,0.2)] px-3 py-1.5 rounded-full transition-all duration-300"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Google Maps embed */}
         <motion.div
