@@ -4,147 +4,142 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 
+const TRUST = [
+  { label: "No hidden fees",       dot: "#D4AF37" },
+  { label: "Free first session",   dot: "#D4AF37" },
+  { label: "Join any day",         dot: "#D4AF37" },
+  { label: "5000+ happy members",  dot: "#D4AF37" },
+];
+
 export function CTA() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const bgY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden bg-[#0A0A0A]">
-      {/* Background layers */}
-      <motion.div style={{ y }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 cinema-grid opacity-40" />
+    <section ref={ref} className="relative py-36 overflow-hidden bg-[#070707]">
+      {/* Parallax background layers */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 cinema-grid opacity-25" />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full"
-          style={{
-            background: "radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%)",
-          }}
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 100% 70% at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 65%)" }}
         />
       </motion.div>
 
       {/* Diagonal accent lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[-30, -10, 10, 30].map((deg, i) => (
+        {[15, 35, 65, 85].map((pos, i) => (
           <motion.div
             key={i}
-            className="absolute w-px h-full bg-gradient-to-b from-transparent via-[rgba(212,175,55,0.06)] to-transparent"
-            style={{ left: `${20 + i * 20}%`, transform: `rotate(${deg}deg)`, transformOrigin: "center" }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: i * 0.15, duration: 1 }}
+            className="absolute top-0 bottom-0 w-px"
+            style={{
+              left: `${pos}%`,
+              background: "linear-gradient(180deg, transparent, rgba(212,175,55,0.05) 30%, rgba(212,175,55,0.05) 70%, transparent)",
+              transform: `rotate(${i % 2 === 0 ? "2deg" : "-2deg"})`,
+            }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: i * 0.1, ease: [0.16,1,0.3,1] }}
           />
         ))}
       </div>
 
       <div className="container-wide relative text-center">
+        {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
+          className="flex items-center justify-center gap-4 mb-10"
         >
-          {/* Label */}
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <span className="w-12 h-px bg-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs font-semibold tracking-[0.3em] uppercase font-sans">
-              The Time Is Now
-            </span>
-            <span className="w-12 h-px bg-[#D4AF37]" />
-          </div>
+          <span className="w-12 h-px bg-[#D4AF37] opacity-60" />
+          <span className="eyebrow opacity-60">The Time Is Now</span>
+          <span className="w-12 h-px bg-[#D4AF37] opacity-60" />
+        </motion.div>
 
-          {/* Headline */}
-          <div className="overflow-hidden mb-3">
-            <motion.h2
-              initial={{ y: "100%" }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
-              className="font-display font-black text-[clamp(48px,8vw,100px)] leading-[0.95] tracking-tight text-white"
-            >
-              READY TO
-            </motion.h2>
-          </div>
-
-          <div className="overflow-hidden mb-10">
-            <motion.h2
-              initial={{ y: "100%" }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.35, ease: [0.25, 1, 0.5, 1] }}
-              className="font-display font-black text-[clamp(48px,8vw,100px)] leading-[0.95] tracking-tight text-gradient-gold"
-            >
-              TRANSFORM?
-            </motion.h2>
-          </div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        {/* Headline */}
+        <div className="overflow-hidden mb-1">
+          <motion.h2
+            initial={{ y: "105%", opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-[#666] text-lg md:text-xl max-w-lg mx-auto mb-12 font-body"
+            transition={{ duration: 1, delay: 0.15, ease: [0.16,1,0.3,1] }}
+            className="font-display font-black leading-[0.92] tracking-[-0.03em] text-white"
+            style={{ fontSize: "clamp(52px, 9vw, 110px)" }}
           >
-            Join Salus Fitness today and begin the most rewarding journey of your life.
-          </motion.p>
+            READY TO
+          </motion.h2>
+        </div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="overflow-hidden mb-12">
+          <motion.h2
+            initial={{ y: "105%", opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.65, duration: 0.8 }}
-            className="flex flex-wrap items-center justify-center gap-4"
+            transition={{ duration: 1, delay: 0.3, ease: [0.16,1,0.3,1] }}
+            className="font-display font-black leading-[0.92] tracking-[-0.03em] text-gradient-gold"
+            style={{ fontSize: "clamp(52px, 9vw, 110px)" }}
           >
-            <motion.button
-              whileHover={{ scale: 1.06, y: -3 }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => document.querySelector("#membership")?.scrollIntoView({ behavior: "smooth" })}
-              className="group flex items-center gap-2 bg-[#D4AF37] text-[#0A0A0A] font-black text-sm tracking-[0.2em] uppercase px-10 py-5 rounded-full hover:bg-[#E8CC5F] transition-all duration-300 shadow-[0_0_50px_rgba(212,175,55,0.35)] cursor-pointer border-none"
-            >
-              Join Today
-              <motion.span
-                className="group-hover:translate-x-1 transition-transform duration-300"
-              >
-                <ArrowRight size={16} />
-              </motion.span>
-            </motion.button>
+            TRANSFORM?
+          </motion.h2>
+        </div>
 
-            <motion.a
-              href="tel:7674014383"
-              whileHover={{ scale: 1.06, y: -3 }}
-              whileTap={{ scale: 0.96 }}
-              className="flex items-center gap-2 border border-[rgba(255,255,255,0.15)] text-white font-semibold text-sm tracking-wider uppercase px-10 py-5 rounded-full hover:border-[rgba(212,175,55,0.4)] hover:text-[#D4AF37] backdrop-blur-sm transition-all duration-300"
-            >
-              <Phone size={14} />
-              Call Now
-            </motion.a>
-          </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.8, ease: [0.16,1,0.3,1] }}
+          className="font-body text-[#555] text-lg max-w-md mx-auto mb-12 leading-[1.7]"
+        >
+          Join Salus Fitness today. The only thing you have to lose is the version of you that keeps putting it off.
+        </motion.p>
 
-          {/* Info row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-wrap items-center justify-center gap-6 mt-12 text-[#333] text-xs font-body"
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.65, duration: 0.8, ease: [0.16,1,0.3,1] }}
+          className="flex flex-wrap items-center justify-center gap-4 mb-14"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={() => document.querySelector("#membership")?.scrollIntoView({ behavior: "smooth" })}
+            className="flex items-center gap-2.5 bg-[#D4AF37] text-[#0A0A0A] font-sans font-bold text-[11px] tracking-[0.22em] uppercase px-10 py-5 rounded-full hover:bg-[#E8CC5F] transition-all duration-300 shadow-[0_0_60px_rgba(212,175,55,0.3)] cursor-pointer border-none"
           >
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00E676]" />
-              No hidden fees
+            Join Today
+            <ArrowRight size={14} />
+          </motion.button>
+
+          <motion.a
+            href="tel:7674014383"
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.96 }}
+            className="flex items-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-10 py-5 rounded-full text-white border border-[rgba(255,255,255,0.1)] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] transition-all duration-300"
+          >
+            <Phone size={13} />
+            Call Now
+          </motion.a>
+        </motion.div>
+
+        {/* Trust signals */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.85 }}
+          className="flex flex-wrap items-center justify-center gap-6"
+        >
+          {TRUST.map((t) => (
+            <span key={t.label} className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.dot }} />
+              <span className="font-body text-[#333] text-xs">{t.label}</span>
             </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-              Free first session
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00E676]" />
-              Join any day
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-              5000+ members trust us
-            </span>
-          </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

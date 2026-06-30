@@ -15,10 +15,14 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { AIChat } from "@/components/ui/AIChat";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { Cursor } from "@/components/ui/Cursor";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export default function Home() {
   return (
     <SmoothScroll>
+      <Cursor />
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />

@@ -2,84 +2,22 @@
 
 import { motion } from "framer-motion";
 import {
-  Dumbbell, Heart, Salad, TrendingUp, Zap, Activity,
-  Flame, Timer, Target, Wind, Users2, Shield
+  Dumbbell, Shield, Salad, TrendingUp, Zap, Flame,
+  Wind, Users2, Timer, Activity
 } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
-const features = [
-  {
-    icon: Dumbbell,
-    title: "Imported Equipment",
-    desc: "World-class machines imported from top global brands for superior performance.",
-    color: "#D4AF37",
-  },
-  {
-    icon: Shield,
-    title: "Certified Trainers",
-    desc: "Our expert trainers hold certifications from internationally recognized institutes.",
-    color: "#00E676",
-  },
-  {
-    icon: Salad,
-    title: "Personal Diet Plans",
-    desc: "Customized nutrition guidance tailored to your body type and fitness goals.",
-    color: "#D4AF37",
-  },
-  {
-    icon: TrendingUp,
-    title: "Body Transformation",
-    desc: "Proven transformation programs with tracked progress and guaranteed results.",
-    color: "#00E676",
-  },
-  {
-    icon: Target,
-    title: "Strength Training",
-    desc: "Complete free weights zone with barbells, dumbbells, cable machines, and more.",
-    color: "#D4AF37",
-  },
-  {
-    icon: Heart,
-    title: "Cardio Zone",
-    desc: "Treadmills, bikes, ellipticals, and rowers — premium cardio equipment.",
-    color: "#00E676",
-  },
-  {
-    icon: Zap,
-    title: "CrossFit",
-    desc: "Functional movements performed at high intensity to maximize conditioning.",
-    color: "#D4AF37",
-  },
-  {
-    icon: Flame,
-    title: "HIIT",
-    desc: "High-Intensity Interval Training sessions that burn fat fast and build stamina.",
-    color: "#00E676",
-  },
-  {
-    icon: Activity,
-    title: "Functional Training",
-    desc: "Movement-based workouts to improve everyday performance and posture.",
-    color: "#D4AF37",
-  },
-  {
-    icon: Wind,
-    title: "AC Gym",
-    desc: "Fully air-conditioned facility for an uninterrupted, comfortable workout.",
-    color: "#00E676",
-  },
-  {
-    icon: Users2,
-    title: "Women's Zone",
-    desc: "Private, dedicated area for women with curated equipment and female trainers.",
-    color: "#D4AF37",
-  },
-  {
-    icon: Timer,
-    title: "Flexible Hours",
-    desc: "Open 6 AM – 10 PM, seven days a week, to fit your schedule perfectly.",
-    color: "#00E676",
-  },
+const FEATURES = [
+  { num: "01", icon: Dumbbell,  title: "Machines that perform",   desc: "World-class imported equipment — because results start with the right tools." },
+  { num: "02", icon: Shield,    title: "Coaches who care",         desc: "Every certified trainer is invested in your transformation, not just your attendance." },
+  { num: "03", icon: Salad,     title: "Fuel your body right",     desc: "Personalized nutrition plans built around your metabolism, not generic templates." },
+  { num: "04", icon: TrendingUp,title: "Results you can see",      desc: "Proven body transformation programs with measurable milestones at every step." },
+  { num: "05", icon: Zap,       title: "Intensity that works",     desc: "CrossFit and HIIT sessions engineered to burn fat and build real endurance fast." },
+  { num: "06", icon: Flame,     title: "Strength without limits",  desc: "Full free-weights zone — barbells, dumbbells to 60kg, cables, power racks." },
+  { num: "07", icon: Wind,      title: "Comfort while you grind",  desc: "Fully air-conditioned facility so nothing stands between you and your best session." },
+  { num: "08", icon: Users2,    title: "A space made for women",   desc: "Private zone, female trainers, curated equipment — training the way you deserve." },
+  { num: "09", icon: Activity,  title: "Move better every day",    desc: "Functional training that improves posture, mobility, and real-world performance." },
+  { num: "10", icon: Timer,     title: "On your schedule",         desc: "Open 6 AM – 10 PM, Mon–Sat. Your progress doesn't wait for convenience." },
 ];
 
 export function WhySalus() {
@@ -87,64 +25,76 @@ export function WhySalus() {
     <section id="why-salus" className="section-padding bg-[#0A0A0A] relative overflow-hidden">
       {/* Background accents */}
       <div
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse, rgba(212,175,55,0.04) 0%, transparent 70%)",
-        }}
+        className="absolute right-0 top-0 w-[600px] h-[600px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at top right, rgba(212,175,55,0.035) 0%, transparent 65%)" }}
+      />
+      <div
+        className="absolute left-0 bottom-0 w-[400px] h-[400px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at bottom left, rgba(212,175,55,0.02) 0%, transparent 65%)" }}
       />
 
       <div className="container-wide relative">
-        <SectionTitle
-          label="Why Choose Us"
-          title="Everything You Need"
-          highlight="Under One Roof"
-          subtitle="We've built a complete fitness ecosystem where every detail is designed to help you reach your peak."
-        />
+        {/* Header — editorial split */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-20">
+          <div className="lg:max-w-lg">
+            <SectionTitle
+              label="Why Salus"
+              title="Built for people who"
+              highlight="don't quit."
+              align="left"
+              className="mb-0"
+            />
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}
+            className="lg:max-w-xs font-body text-[#555] text-sm leading-[1.85]"
+          >
+            We built Salus Fitness around one obsession — making it impossible for you to not see results. Every detail here has a purpose.
+          </motion.p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {features.map((feature, i) => (
+        {/* Feature grid — no gap, divided by 1px lines */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[#141414]">
+          {FEATURES.map((f, i) => (
             <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 40 }}
+              key={f.num}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.7,
-                delay: (i % 4) * 0.08,
-                ease: [0.25, 1, 0.5, 1],
-              }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative premium-card p-6 cursor-default"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, delay: (i % 5) * 0.07, ease: [0.16,1,0.3,1] }}
+              className="group relative bg-[#0A0A0A] p-7 cursor-default overflow-hidden transition-colors duration-400 hover:bg-[#0E0E0E]"
             >
-              {/* Card glow on hover */}
-              <motion.div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: `radial-gradient(ellipse at top left, ${feature.color}08 0%, transparent 60%)`,
-                }}
-              />
+              {/* Hover: gold top border draw */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+              {/* Big number — ghost text */}
+              <div
+                className="font-display font-black text-[#141414] group-hover:text-[rgba(212,175,55,0.07)] transition-colors duration-500 select-none leading-none mb-4"
+                style={{ fontSize: "clamp(44px, 5.5vw, 72px)" }}
+              >
+                {f.num}
+              </div>
 
               {/* Icon */}
               <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 relative"
-                style={{ background: `${feature.color}12` }}
+                className="w-9 h-9 rounded-lg flex items-center justify-center mb-4 transition-transform duration-400 group-hover:scale-110"
+                style={{ background: "rgba(212,175,55,0.07)" }}
               >
-                <feature.icon size={20} style={{ color: feature.color }} />
+                <f.icon size={16} style={{ color: "#D4AF37" }} />
               </div>
 
-              {/* Content */}
-              <h3 className="font-sans font-semibold text-white text-base mb-2 leading-snug">
-                {feature.title}
+              {/* Title */}
+              <h3 className="font-sans font-semibold text-[13px] text-white leading-snug mb-2.5 tracking-[-0.01em]">
+                {f.title}
               </h3>
-              <p className="text-[#666666] text-sm leading-relaxed font-body">
-                {feature.desc}
-              </p>
 
-              {/* Bottom accent line */}
-              <div
-                className="absolute bottom-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: `linear-gradient(90deg, ${feature.color}40, transparent)` }}
-              />
+              {/* Description */}
+              <p className="font-body text-[#555] text-[12px] leading-[1.75]">
+                {f.desc}
+              </p>
             </motion.div>
           ))}
         </div>

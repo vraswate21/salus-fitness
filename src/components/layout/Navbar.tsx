@@ -2,173 +2,195 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { label: "About", href: "#why-salus" },
+const NAV_LINKS = [
+  { label: "About",    href: "#why-salus" },
   { label: "Programs", href: "#programs" },
-  { label: "Pricing", href: "#membership" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Pricing",  href: "#membership" },
+  { label: "Gallery",  href: "#gallery" },
   { label: "Trainers", href: "#trainers" },
-  { label: "Contact", href: "#footer" },
+  { label: "Contact",  href: "#footer" },
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handler = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const go = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -90, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+        transition={{ duration: 0.9, ease: [0.16,1,0.3,1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-[rgba(10,10,10,0.92)] backdrop-blur-xl border-b border-[rgba(212,175,55,0.1)] py-3"
-            : "bg-transparent py-5"
+            ? "py-3 bg-[rgba(8,8,8,0.94)] backdrop-blur-2xl border-b border-[rgba(212,175,55,0.08)] shadow-[0_1px_40px_rgba(0,0,0,0.6)]"
+            : "py-5 bg-transparent"
         )}
       >
         <div className="container-wide flex items-center justify-between">
-          {/* Logo */}
+
+          {/* ── Logo ── */}
           <motion.a
             href="#"
-            whileHover={{ scale: 1.02 }}
-            className="flex flex-col leading-none select-none"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            whileHover={{ scale: 1.03 }}
+            className="flex flex-col leading-none select-none group cursor-pointer"
           >
-            <span className="font-display font-black text-xl tracking-[0.08em] text-white">
+            <span
+              className="font-display font-black tracking-[0.07em] text-white transition-colors duration-300 group-hover:text-[#F0D060]"
+              style={{ fontSize: "clamp(18px, 2vw, 22px)" }}
+            >
               SALUS
             </span>
-            <span className="font-sans text-[10px] tracking-[0.35em] text-[#D4AF37] font-medium">
+            <span className="font-sans font-semibold tracking-[0.4em] text-[#D4AF37] leading-none" style={{ fontSize: "9px" }}>
               FITNESS
             </span>
           </motion.a>
 
-          {/* Desktop Nav */}
+          {/* ── Desktop nav ── */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link, i) => (
+            {NAV_LINKS.map((link, i) => (
               <motion.button
                 key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                initial={{ opacity: 0, y: -10 }}
+                onClick={() => go(link.href)}
+                initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i, duration: 0.5 }}
-                className="hover-line text-[#B8B8B8] hover:text-white text-sm font-medium tracking-wide transition-colors duration-300 cursor-pointer bg-transparent border-none"
+                transition={{ delay: 0.08 * i + 0.3, duration: 0.5, ease: [0.16,1,0.3,1] }}
+                className="hover-line font-sans font-medium text-[13px] tracking-[0.06em] text-[#999] hover:text-white transition-colors duration-300 cursor-pointer bg-transparent border-none"
               >
                 {link.label}
               </motion.button>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <motion.a
+          {/* ── Desktop CTA ── */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="hidden lg:flex items-center gap-3"
+          >
+            <a
               href="tel:7674014383"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center gap-2 text-[#B8B8B8] hover:text-[#D4AF37] text-sm transition-colors duration-300"
+              className="flex items-center gap-1.5 text-[#666] hover:text-[#D4AF37] text-[12px] font-sans transition-colors duration-300"
             >
-              <Phone size={14} />
-              <span className="font-medium">76740 14383</span>
-            </motion.a>
+              <Phone size={12} />
+              <span>76740 14383</span>
+            </a>
 
             <motion.button
-              onClick={() => handleNavClick("#membership")}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              whileHover={{ scale: 1.05, y: -1 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-[#D4AF37] text-[#0A0A0A] font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full hover:bg-[#E8CC5F] transition-colors duration-300 cursor-pointer border-none shadow-[0_0_20px_rgba(212,175,55,0.25)]"
+              onClick={() => go("#membership")}
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              className="flex items-center gap-2 bg-[#D4AF37] text-[#0A0A0A] font-sans font-bold text-[11px] tracking-[0.2em] uppercase px-6 py-3 rounded-full hover:bg-[#E8CC5F] transition-all duration-300 cursor-pointer border-none shadow-[0_0_24px_rgba(212,175,55,0.22)]"
             >
               Join Today
+              <ArrowRight size={11} />
             </motion.button>
-          </div>
+          </motion.div>
 
-          {/* Mobile Toggle */}
+          {/* ── Mobile hamburger ── */}
           <motion.button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-white p-2 cursor-pointer bg-transparent border-none"
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.88 }}
+            className="lg:hidden relative w-9 h-9 flex items-center justify-center text-white cursor-pointer bg-transparent border-none"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            <AnimatePresence mode="wait" initial={false}>
+              {mobileOpen
+                ? <motion.span key="x" initial={{ rotate:-90, opacity:0 }} animate={{ rotate:0, opacity:1 }} exit={{ rotate:90, opacity:0 }} transition={{ duration:0.2 }}>
+                    <X size={20} />
+                  </motion.span>
+                : <motion.span key="m" initial={{ rotate:90, opacity:0 }} animate={{ rotate:0, opacity:1 }} exit={{ rotate:-90, opacity:0 }} transition={{ duration:0.2 }}>
+                    <Menu size={20} />
+                  </motion.span>
+              }
+            </AnimatePresence>
           </motion.button>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* ── Mobile fullscreen menu ── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 35 }}
-            className="fixed inset-0 z-40 bg-[#0A0A0A] flex flex-col pt-24 px-8 pb-8"
+            key="mobile-menu"
+            initial={{ opacity: 0, clipPath: "circle(0% at calc(100% - 48px) 28px)" }}
+            animate={{ opacity: 1, clipPath: "circle(150% at calc(100% - 48px) 28px)" }}
+            exit={{ opacity: 0, clipPath: "circle(0% at calc(100% - 48px) 28px)" }}
+            transition={{ duration: 0.5, ease: [0.16,1,0.3,1] }}
+            className="fixed inset-0 z-40 bg-[#060606] flex flex-col"
           >
-            <nav className="flex flex-col gap-2 flex-1">
-              {navLinks.map((link, i) => (
-                <motion.button
-                  key={link.label}
-                  onClick={() => handleNavClick(link.href)}
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i }}
-                  className="text-left text-3xl font-display font-bold text-white hover:text-[#D4AF37] transition-colors duration-300 py-3 border-b border-[#1A1A1A] cursor-pointer bg-transparent border-x-0 border-t-0"
-                >
-                  {link.label}
-                </motion.button>
-              ))}
-            </nav>
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.4)] to-transparent" />
 
-            <div className="space-y-3">
-              <a
-                href="tel:7674014383"
-                className="flex items-center gap-3 text-[#B8B8B8] py-3"
+            <div className="flex-1 flex flex-col justify-center px-8 pt-20 pb-10">
+              <nav className="flex flex-col gap-1 mb-12">
+                {NAV_LINKS.map((link, i) => (
+                  <motion.button
+                    key={link.label}
+                    onClick={() => go(link.href)}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i + 0.1, ease: [0.16,1,0.3,1] }}
+                    className="text-left py-4 border-b border-[#111] cursor-pointer bg-transparent border-x-0 border-t-0 group flex items-center justify-between"
+                  >
+                    <span className="font-display font-black text-[32px] text-white group-hover:text-[#D4AF37] transition-colors duration-300 tracking-[-0.02em]">
+                      {link.label}
+                    </span>
+                    <ArrowRight size={18} className="text-[#333] group-hover:text-[#D4AF37] group-hover:translate-x-1 transition-all duration-300" />
+                  </motion.button>
+                ))}
+              </nav>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45 }}
+                className="space-y-3"
               >
-                <Phone size={16} className="text-[#D4AF37]" />
-                <span className="text-lg font-medium">76740 14383</span>
-              </a>
-              <button
-                onClick={() => handleNavClick("#membership")}
-                className="w-full bg-[#D4AF37] text-[#0A0A0A] font-black text-sm tracking-widest uppercase py-4 rounded-full cursor-pointer border-none"
-              >
-                Join Today
-              </button>
+                <a href="tel:7674014383" className="flex items-center gap-3 text-[#666] py-2">
+                  <Phone size={15} className="text-[#D4AF37]" />
+                  <span className="font-sans text-base">76740 14383</span>
+                </a>
+                <button
+                  onClick={() => go("#membership")}
+                  className="w-full bg-[#D4AF37] text-[#0A0A0A] font-display font-black text-sm tracking-[0.18em] uppercase py-5 rounded-full cursor-pointer border-none shadow-[0_0_40px_rgba(212,175,55,0.3)]"
+                >
+                  Join Today — Free Trial
+                </button>
+              </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Mobile Sticky Bottom CTA */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.95)] backdrop-blur-xl border-t border-[rgba(212,175,55,0.15)] px-4 py-3 flex gap-3">
+      {/* ── Mobile sticky bottom bar ── */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 flex gap-3 px-4 py-3 bg-[rgba(6,6,6,0.96)] backdrop-blur-xl border-t border-[rgba(212,175,55,0.1)]">
         <a
           href="tel:7674014383"
-          className="flex-1 flex items-center justify-center gap-2 border border-[rgba(212,175,55,0.3)] text-[#D4AF37] text-sm font-semibold py-3 rounded-full"
+          className="flex-1 flex items-center justify-center gap-2 text-[#D4AF37] text-[12px] font-sans font-semibold tracking-wider py-3.5 rounded-full border border-[rgba(212,175,55,0.25)]"
         >
-          <Phone size={14} />
-          Call Now
+          <Phone size={13} /> Call Now
         </a>
         <a
-          href="https://wa.me/917674014383"
+          href="https://wa.me/917674014383?text=Hi%2C%20I%27d%20like%20to%20join%20Salus%20Fitness"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 bg-[#D4AF37] text-[#0A0A0A] text-sm font-black uppercase tracking-wider py-3 rounded-full text-center"
+          className="flex-1 bg-[#D4AF37] text-[#0A0A0A] text-[12px] font-sans font-black tracking-wider uppercase py-3.5 rounded-full text-center"
         >
           WhatsApp
         </a>

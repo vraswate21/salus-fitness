@@ -2,79 +2,75 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Star, Zap } from "lucide-react";
+import { Check, Star, ArrowRight, Phone } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
-const plans = [
+const PLANS = [
   {
     id: "monthly",
     name: "Monthly",
     price: 1200,
-    period: "month",
+    monthlyEq: 1200,
     badge: null,
-    color: "#B8B8B8",
+    highlight: false,
     features: [
-      "Full gym access",
-      "Cardio zone",
-      "Locker facility",
+      "Full gym & cardio access",
+      "AC facility",
+      "Locker & changing room",
       "Basic trainer guidance",
-      "Progress tracking",
+      "Progress tracking app",
     ],
-    missing: ["Diet plan", "Personal training", "Priority support"],
   },
   {
     id: "quarterly",
-    name: "Quarterly",
+    name: "3 Months",
     price: 3200,
-    period: "3 months",
-    badge: null,
-    color: "#D4AF37",
+    monthlyEq: 1067,
+    badge: "Save ₹400",
+    highlight: false,
     features: [
-      "Full gym access",
-      "Cardio zone",
-      "Locker facility",
-      "Diet plan included",
-      "2 PT sessions/month",
-      "Progress tracking",
+      "Full gym & cardio access",
+      "AC facility",
+      "Locker & changing room",
+      "Custom diet plan",
+      "2 PT sessions / month",
+      "Progress tracking app",
     ],
-    missing: ["Personal training", "Priority support"],
   },
   {
     id: "halfyearly",
-    name: "Half Yearly",
+    name: "6 Months",
     price: 5500,
-    period: "6 months",
+    monthlyEq: 917,
     badge: "Best Value",
-    color: "#D4AF37",
+    highlight: true,
     features: [
-      "Full gym access",
-      "Cardio zone",
-      "Locker facility",
+      "Full gym & cardio access",
+      "AC facility",
+      "Locker & changing room",
       "Personalized diet plan",
-      "4 PT sessions/month",
+      "4 PT sessions / month",
       "Body measurements",
       "Priority support",
     ],
-    missing: [],
   },
   {
     id: "annual",
     name: "Annual",
     price: 9500,
-    period: "year",
-    badge: "Most Savings",
-    color: "#00E676",
+    monthlyEq: 792,
+    badge: "Max Savings",
+    highlight: false,
     features: [
-      "Full gym access",
-      "Cardio zone",
-      "Locker facility",
+      "Full gym & cardio access",
+      "AC facility",
+      "Locker & changing room",
       "Personalized diet plan",
       "Unlimited PT sessions",
       "Body measurements",
-      "Priority 1:1 support",
-      "Free gym merchandise",
+      "Priority 1-on-1 support",
+      "Salus merchandise",
     ],
-    missing: [],
   },
 ];
 
@@ -82,117 +78,125 @@ export function Membership() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section id="membership" className="section-padding bg-[#090909] relative overflow-hidden">
-      {/* Background */}
+    <section id="membership" className="section-padding bg-[#070707] relative overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 cinema-grid opacity-30" />
       <div
-        className="absolute inset-0 cinema-grid opacity-40"
-        style={{ backgroundSize: "60px 60px" }}
-      />
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse at center top, rgba(212,175,55,0.05) 0%, transparent 70%)",
-        }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at center top, rgba(212,175,55,0.05) 0%, transparent 65%)" }}
       />
 
       <div className="container-wide relative">
         <SectionTitle
-          label="Pricing"
-          title="Choose Your"
-          highlight="Plan"
-          subtitle="Flexible membership options designed to match your commitment and budget."
+          label="Membership"
+          title="Invest in the"
+          highlight="best version of you."
+          subtitle="Flexible plans. No hidden costs. Start with a free trial."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-          {plans.map((plan, i) => {
-            const isHighlighted = plan.badge === "Best Value";
-            const isHovered = hovered === plan.id;
+        {/* Trust signals */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
+          className="flex flex-wrap items-center justify-center gap-6 mb-14"
+        >
+          {["Free first session", "No lock-in contract", "Student discounts", "Couple discounts"].map((t) => (
+            <div key={t} className="flex items-center gap-2">
+              <Check size={12} className="text-[#D4AF37]" />
+              <span className="font-body text-[#555] text-xs tracking-wide">{t}</span>
+            </div>
+          ))}
+        </motion.div>
 
+        {/* Plans grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+          {PLANS.map((plan, i) => {
+            const isHovered = hovered === plan.id;
             return (
               <motion.div
                 key={plan.id}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.25, 1, 0.5, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: i * 0.09, ease: [0.16,1,0.3,1] }}
                 onHoverStart={() => setHovered(plan.id)}
                 onHoverEnd={() => setHovered(null)}
-                whileHover={{ y: -12, scale: 1.02 }}
-                className="relative flex flex-col cursor-default"
+                className="relative flex flex-col"
               >
-                {/* Best Value glow */}
-                {isHighlighted && (
+                {/* Highlighted plan outer glow */}
+                {plan.highlight && (
                   <div
-                    className="absolute -inset-px rounded-2xl pointer-events-none"
-                    style={{
-                      background: "linear-gradient(135deg, rgba(212,175,55,0.4), transparent 50%, rgba(212,175,55,0.15))",
-                    }}
+                    className="absolute -inset-px rounded-[22px] pointer-events-none z-0"
+                    style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.35), transparent 50%, rgba(212,175,55,0.12))" }}
                   />
                 )}
 
-                <div
-                  className={`relative flex flex-col h-full rounded-2xl p-7 border transition-all duration-500 ${
-                    isHighlighted
-                      ? "bg-[#0F0F0F] border-[rgba(212,175,55,0.3)] shadow-[0_0_60px_rgba(212,175,55,0.1)]"
-                      : "bg-[#111111] border-[#1E1E1E] hover:border-[rgba(212,175,55,0.2)]"
+                <motion.div
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  className={`relative z-10 flex flex-col h-full rounded-[20px] p-7 border transition-all duration-400 ${
+                    plan.highlight
+                      ? "bg-[#0F0F0F] border-[rgba(212,175,55,0.25)] shadow-[0_0_70px_rgba(212,175,55,0.1)]"
+                      : "bg-[#0D0D0D] border-[#1A1A1A] hover:border-[rgba(212,175,55,0.18)]"
                   }`}
                 >
                   {/* Badge */}
-                  {plan.badge && (
-                    <div className="flex justify-between items-start mb-4">
+                  <div className="h-8 mb-4 flex items-center">
+                    {plan.badge && (
                       <span
-                        className="text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full flex items-center gap-1.5"
-                        style={{
-                          background: plan.badge === "Best Value"
-                            ? "rgba(212,175,55,0.15)"
-                            : "rgba(0,230,118,0.12)",
-                          color: plan.badge === "Best Value" ? "#D4AF37" : "#00E676",
-                          border: `1px solid ${plan.badge === "Best Value" ? "rgba(212,175,55,0.3)" : "rgba(0,230,118,0.2)"}`,
-                        }}
+                        className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full"
+                        style={
+                          plan.highlight
+                            ? { background: "rgba(212,175,55,0.12)", color: "#D4AF37", border: "1px solid rgba(212,175,55,0.25)" }
+                            : { background: "rgba(255,255,255,0.04)", color: "#888", border: "1px solid rgba(255,255,255,0.07)" }
+                        }
                       >
-                        <Star size={10} fill="currentColor" />
+                        {plan.highlight && <Star size={9} fill="currentColor" />}
                         {plan.badge}
                       </span>
-                    </div>
-                  )}
-                  {!plan.badge && <div className="h-10 mb-4" />}
+                    )}
+                  </div>
 
                   {/* Plan name */}
-                  <div className="mb-6">
-                    <span className="text-[#555555] text-xs tracking-[0.2em] uppercase font-sans">
-                      {plan.name}
+                  <div className="eyebrow text-[9px] opacity-50 mb-3">{plan.name}</div>
+
+                  {/* Price */}
+                  <div className="flex items-end gap-1 mb-1">
+                    <span className="text-[#888] text-base font-sans mt-1">₹</span>
+                    <span
+                      className="font-display font-black leading-none tracking-[-0.03em]"
+                      style={{
+                        fontSize: "clamp(36px, 5vw, 48px)",
+                        color: plan.highlight ? "#D4AF37" : "#FFFFFF",
+                      }}
+                    >
+                      {plan.price.toLocaleString("en-IN")}
                     </span>
-                    <div className="flex items-end gap-2 mt-2">
-                      <span className="text-[#B8B8B8] text-lg font-medium">₹</span>
-                      <span className="font-display font-black text-4xl text-white tracking-tight leading-none">
-                        {plan.price.toLocaleString("en-IN")}
-                      </span>
-                    </div>
-                    <span className="text-[#444444] text-sm mt-1 block">/{plan.period}</span>
+                  </div>
+                  <div className="font-body text-[#444] text-xs mb-1">/{plan.name.toLowerCase()}</div>
+                  <div className="font-body text-[#333] text-[11px] mb-7">
+                    ≈ ₹{plan.monthlyEq.toLocaleString("en-IN")} / month
                   </div>
 
                   {/* Divider */}
-                  <div className="w-full h-px bg-[#1E1E1E] mb-6" />
+                  <div
+                    className="w-full h-px mb-6 transition-colors duration-300"
+                    style={{ background: plan.highlight ? "rgba(212,175,55,0.12)" : "#1A1A1A" }}
+                  />
 
                   {/* Features */}
                   <div className="flex-1 space-y-3 mb-8">
                     {plan.features.map((f) => (
-                      <div key={f} className="flex items-start gap-3">
+                      <div key={f} className="flex items-start gap-2.5">
                         <div
                           className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                          style={{ background: `${plan.color}18` }}
+                          style={{ background: "rgba(212,175,55,0.1)" }}
                         >
-                          <Check size={10} style={{ color: plan.color }} />
+                          <Check size={9} style={{ color: "#D4AF37" }} />
                         </div>
-                        <span className="text-[#B8B8B8] text-sm leading-snug">{f}</span>
-                      </div>
-                    ))}
-                    {plan.missing.map((f) => (
-                      <div key={f} className="flex items-start gap-3 opacity-30">
-                        <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-[#1A1A1A]">
-                          <span className="w-1.5 h-px bg-[#444] block" />
-                        </div>
-                        <span className="text-[#444444] text-sm line-through leading-snug">{f}</span>
+                        <span className="font-body text-[#999] text-[13px] leading-snug">{f}</span>
                       </div>
                     ))}
                   </div>
@@ -201,44 +205,45 @@ export function Membership() {
                   <motion.button
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="w-full py-4 rounded-xl font-bold text-sm tracking-[0.15em] uppercase transition-all duration-300 cursor-pointer border-none"
+                    onClick={() => {
+                      window.open(`https://wa.me/917674014383?text=Hi%2C%20I%27d%20like%20to%20join%20the%20${encodeURIComponent(plan.name)}%20plan%20at%20Salus%20Fitness.`, "_blank");
+                    }}
+                    className="w-full py-4 rounded-2xl font-sans font-bold text-[11px] tracking-[0.18em] uppercase flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer border-none"
                     style={
-                      isHighlighted
-                        ? {
-                            background: "#D4AF37",
-                            color: "#0A0A0A",
-                            boxShadow: "0 0 30px rgba(212,175,55,0.25)",
-                          }
-                        : {
-                            background: "transparent",
-                            color: plan.color,
-                            border: `1px solid ${plan.color}40`,
-                          }
+                      plan.highlight
+                        ? { background: "#D4AF37", color: "#0A0A0A", boxShadow: "0 0 35px rgba(212,175,55,0.25)" }
+                        : { background: "transparent", color: "#666", border: "1px solid #1E1E1E" }
                     }
                   >
-                    <span className="flex items-center justify-center gap-2">
-                      <Zap size={14} />
-                      Get Started
-                    </span>
+                    Get Started
+                    <ArrowRight size={12} />
                   </motion.button>
-                </div>
+                </motion.div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Note */}
-        <motion.p
+        {/* Bottom trust row */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center text-[#444444] text-sm mt-10 font-body"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
         >
-          All plans include AC gym access · Changing rooms · Basic nutrition guidance
-          <br />
-          <span className="text-[#D4AF37]">Call 76740 14383</span> to enroll or ask about student / couple discounts
-        </motion.p>
+          <p className="font-body text-[#333] text-xs text-center">
+            All plans include AC gym · Changing rooms · Basic nutrition guidance
+          </p>
+          <span className="hidden sm:block text-[#222] text-xs">·</span>
+          <a
+            href="tel:7674014383"
+            className="flex items-center gap-1.5 font-body text-[#D4AF37] text-xs hover:underline"
+          >
+            <Phone size={11} />
+            Call 76740 14383 for student & couple deals
+          </a>
+        </motion.div>
       </div>
     </section>
   );

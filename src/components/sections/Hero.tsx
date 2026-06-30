@@ -2,247 +2,263 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Zap, Users, Award, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const stats = [
-  { value: 5000, suffix: "+", label: "Members", icon: Users },
-  { value: 15, suffix: "+", label: "Trainers", icon: Zap },
-  { value: 8, suffix: "+", label: "Years", icon: Award },
-  { value: 4.9, suffix: "", label: "Google Rating", icon: Star },
+/* ─── Stable particle positions – never change between renders ─── */
+const PARTICLES = Array.from({ length: 28 }, (_, i) => ({
+  left:     ((i * 41 + 7)  % 91) + 4,
+  top:      ((i * 67 + 13) % 85) + 5,
+  size:     i % 3 === 0 ? 2 : 1,
+  duration: 5 + (i % 6),
+  delay:    (i * 0.38) % 5,
+  opacity:  0.12 + (i % 5) * 0.07,
+}));
+
+/* ─── Stats ─── */
+const STATS = [
+  { value: 5000, suffix: "+", label: "Members" },
+  { value: 15,   suffix: "+", label: "Expert Trainers" },
+  { value: 8,    suffix: "+", label: "Years of Excellence" },
+  { value: 4.9,  suffix: "",  label: "Google Rating" },
 ];
 
-function CountUp({ to, duration = 2 }: { to: number; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
+function AnimatedNumber({ to, duration = 1.8 }: { to: number; duration?: number }) {
+  const [val, setVal] = useState(0);
+  const [on,  setOn]  = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
-        }
-      },
+    const io = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setOn(true); },
       { threshold: 0.5 }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [started]);
+    if (ref.current) io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (!started) return;
-    const isDecimal = to % 1 !== 0;
-    const steps = 60;
-    const increment = to / steps;
-    let current = 0;
+    if (!on) return;
+    const isFloat = to % 1 !== 0;
+    const steps = 50;
+    let step = 0;
     const timer = setInterval(() => {
-      current += increment;
-      if (current >= to) {
-        setCount(to);
-        clearInterval(timer);
-      } else {
-        setCount(isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current));
-      }
+      step++;
+      const progress = step / steps;
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = to * eased;
+      setVal(isFloat ? parseFloat(current.toFixed(1)) : Math.floor(current));
+      if (step >= steps) { setVal(to); clearInterval(timer); }
     }, (duration * 1000) / steps);
     return () => clearInterval(timer);
-  }, [started, to, duration]);
+  }, [on, to, duration]);
 
-  return <span ref={ref}>{count}</span>;
+  return <span ref={ref}>{val}</span>;
 }
 
 export function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 600], [0, 160]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const contentY  = useTransform(scrollY, [0, 700], [0, 120]);
+  const contentOp = useTransform(scrollY, [0, 450], [1, 0]);
+
+  const scrollTo = (id: string) =>
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section
-      ref={containerRef}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      ref={ref}
       id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* ─── Cinematic Background ─── */}
-      <div className="absolute inset-0 bg-[#0A0A0A]">
+      {/* ─── Background layers ─── */}
+      <div className="absolute inset-0 bg-[#060606]">
         {/* Grid */}
-        <div className="absolute inset-0 cinema-grid opacity-60" />
+        <div className="absolute inset-0 cinema-grid" />
 
-        {/* Radial glow - top center */}
+        {/* Primary radial — center */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[700px] rounded-full"
+          className="absolute inset-0"
           style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(212,175,55,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,175,55,0.07) 0%, transparent 70%)",
           }}
         />
 
-        {/* Radial glow - bottom left */}
+        {/* Secondary glow — bottom right */}
         <div
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full"
+          className="absolute bottom-0 right-0 w-[50vw] h-[50vh]"
           style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(212,175,55,0.04) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at bottom right, rgba(212,175,55,0.04) 0%, transparent 70%)",
           }}
         />
 
-        {/* Vertical accent lines */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[15, 35, 65, 85].map((pos, i) => (
-            <motion.div
-              key={i}
-              className="absolute top-0 bottom-0 w-px"
-              style={{ left: `${pos}%`, background: "rgba(212,175,55,0.05)" }}
-              initial={{ scaleY: 0, opacity: 0 }}
-              animate={{ scaleY: 1, opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.2 * i, ease: "easeOut" }}
-            />
-          ))}
-        </div>
-
-        {/* Scanning light */}
-        <motion.div
-          className="absolute inset-x-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(212,175,55,0.15), transparent)",
-          }}
-          animate={{ y: ["-10vh", "110vh"] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
-        />
-
-        {/* Floating particles */}
-        {Array.from({ length: 20 }).map((_, i) => (
+        {/* Vertical hairlines */}
+        {[12, 28, 50, 72, 88].map((pct, i) => (
           <motion.div
             key={i}
-            className="absolute w-0.5 h-0.5 rounded-full bg-[#D4AF37]"
+            className="absolute top-0 bottom-0 w-px"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.4 + 0.1,
+              left: `${pct}%`,
+              background: "linear-gradient(180deg, transparent, rgba(212,175,55,0.06) 30%, rgba(212,175,55,0.06) 70%, transparent)",
             }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0.1, 0.5, 0.1],
+            initial={{ scaleY: 0, opacity: 0 }}
+            animate={{ scaleY: 1, opacity: 1 }}
+            transition={{ duration: 2, delay: i * 0.15, ease: [0.16,1,0.3,1] }}
+          />
+        ))}
+
+        {/* Horizontal hairline */}
+        <motion.div
+          className="absolute left-0 right-0 h-px"
+          style={{
+            top: "65%",
+            background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.05) 20%, rgba(212,175,55,0.05) 80%, transparent)",
+          }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 2.5, delay: 0.5 }}
+        />
+
+        {/* Particles */}
+        {PARTICLES.map((p, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-[#D4AF37]"
+            style={{
+              left: `${p.left}%`,
+              top:  `${p.top}%`,
+              width:  p.size,
+              height: p.size,
+              opacity: p.opacity,
             }}
+            animate={{ y: [0, -18, 0], opacity: [p.opacity, p.opacity * 2.5, p.opacity] }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: p.duration,
               repeat: Infinity,
-              delay: Math.random() * 4,
+              delay: p.delay,
               ease: "easeInOut",
             }}
           />
         ))}
+
+        {/* Light sweep */}
+        <motion.div
+          className="absolute inset-x-0 h-[1px] pointer-events-none"
+          style={{ background: "linear-gradient(90deg, transparent 10%, rgba(212,175,55,0.12) 50%, transparent 90%)" }}
+          animate={{ y: ["-5vh", "105vh"] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear", repeatDelay: 6 }}
+        />
       </div>
 
-      {/* ─── Main Content ─── */}
+      {/* ─── Content ─── */}
       <motion.div
-        style={{ y, opacity }}
-        className="relative z-10 container-wide flex flex-col items-center text-center pt-24"
+        style={{ y: contentY, opacity: contentOp }}
+        className="relative z-10 container-wide flex flex-col items-center text-center pt-28 pb-12"
       >
         {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center gap-3 mb-8"
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.16,1,0.3,1] }}
+          className="flex items-center gap-4 mb-10"
         >
-          <span className="w-8 h-px bg-[#D4AF37]" />
-          <span className="text-[#D4AF37] text-xs font-semibold tracking-[0.3em] uppercase font-sans">
-            A Perfect Destination For Your Health
-          </span>
-          <span className="w-8 h-px bg-[#D4AF37]" />
+          <span className="w-10 h-px bg-[#D4AF37]" />
+          <span className="eyebrow opacity-80">Since 2016 · Gym & Cardio · Men & Women</span>
+          <span className="w-10 h-px bg-[#D4AF37]" />
         </motion.div>
 
-        {/* Main Headline */}
-        <div className="overflow-hidden mb-4">
+        {/* Headline line 1 */}
+        <div className="overflow-hidden mb-1">
           <motion.h1
-            initial={{ y: "100%" }}
+            initial={{ y: "110%" }}
             animate={{ y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.25, 1, 0.5, 1] }}
-            className="font-display font-black text-[clamp(64px,12vw,160px)] leading-[0.9] tracking-[-0.02em] text-white"
+            transition={{ duration: 1.1, delay: 0.55, ease: [0.16,1,0.3,1] }}
+            className="font-display font-black leading-[0.88] tracking-[-0.03em] text-white"
+            style={{ fontSize: "clamp(72px,13.5vw,190px)" }}
           >
             TRANSFORM
           </motion.h1>
         </div>
 
-        <div className="overflow-hidden mb-8">
+        {/* Headline line 2 */}
+        <div className="overflow-hidden mb-10">
           <motion.h1
-            initial={{ y: "100%" }}
+            initial={{ y: "110%" }}
             animate={{ y: 0 }}
-            transition={{ duration: 1, delay: 0.65, ease: [0.25, 1, 0.5, 1] }}
-            className="font-display font-black text-[clamp(64px,12vw,160px)] leading-[0.9] tracking-[-0.02em] text-gradient-gold"
+            transition={{ duration: 1.1, delay: 0.7, ease: [0.16,1,0.3,1] }}
+            className="font-display font-black leading-[0.88] tracking-[-0.03em] text-gradient-gold"
+            style={{ fontSize: "clamp(72px,13.5vw,190px)" }}
           >
             YOUR BODY
           </motion.h1>
         </div>
 
-        {/* Subheadline */}
+        {/* Sub copy */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-[#B8B8B8] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-body"
+          transition={{ duration: 0.9, delay: 0.95, ease: [0.16,1,0.3,1] }}
+          className="font-body text-[#888] text-lg md:text-xl max-w-md leading-[1.65] mb-12"
         >
-          Build strength. Lose fat. Become unstoppable.
-          <br />
-          <span className="text-[#555555] text-sm">Premium AC Gym & Cardio — For Men & Women</span>
+          Build strength. Burn fat. Become someone new.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-20"
+          transition={{ duration: 0.9, delay: 1.1, ease: [0.16,1,0.3,1] }}
+          className="flex flex-wrap items-center justify-center gap-3 mb-24"
         >
+          {/* Primary */}
           <motion.button
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => {
-              document.querySelector("#membership")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="bg-[#D4AF37] text-[#0A0A0A] font-black text-sm tracking-[0.2em] uppercase px-10 py-4 rounded-full hover:bg-[#E8CC5F] transition-all duration-300 shadow-[0_0_40px_rgba(212,175,55,0.3)] cursor-pointer border-none"
+            whileHover={{ scale: 1.04, y: -3 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={() => scrollTo("#membership")}
+            className="group relative flex items-center gap-3 bg-[#D4AF37] text-[#0A0A0A] font-sans font-bold text-[11px] tracking-[0.22em] uppercase px-9 py-[17px] rounded-full overflow-hidden transition-colors duration-300 hover:bg-[#E8CC5F] cursor-pointer border-none glow-gold"
           >
-            Join Today
+            <span className="relative z-10">Join Today</span>
+            <motion.span
+              className="relative z-10"
+              animate={{ x: [0, 3, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+            >
+              <ArrowRight size={14} />
+            </motion.span>
           </motion.button>
 
+          {/* Secondary */}
           <motion.button
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => {
-              document.querySelector("#bmi")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="border border-[rgba(212,175,55,0.4)] text-white font-semibold text-sm tracking-[0.15em] uppercase px-10 py-4 rounded-full hover:border-[#D4AF37] hover:text-[#D4AF37] backdrop-blur-sm transition-all duration-300 cursor-pointer bg-transparent"
+            whileHover={{ scale: 1.04, y: -3 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={() => scrollTo("#bmi")}
+            className="flex items-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-9 py-[17px] rounded-full text-white border border-[rgba(255,255,255,0.12)] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] backdrop-blur-sm transition-all duration-300 cursor-pointer bg-transparent"
           >
-            Book Free Trial
+            Free Trial
           </motion.button>
         </motion.div>
 
-        {/* ─── Stats Row ─── */}
+        {/* ─── Stats ─── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
-          className="w-full max-w-3xl grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden"
+          transition={{ duration: 1, delay: 1.3, ease: [0.16,1,0.3,1] }}
+          className="w-full max-w-2xl"
         >
-          {stats.map((stat, i) => (
-            <div
-              key={stat.label}
-              className="relative bg-[rgba(10,10,10,0.8)] backdrop-blur-xl flex flex-col items-center py-6 px-4 group"
-            >
-              <motion.div
-                className="absolute inset-0 bg-[rgba(212,175,55,0.03)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
-              <stat.icon size={14} className="text-[#D4AF37] mb-2" />
-              <div className="font-display font-black text-2xl md:text-3xl text-white tracking-tight">
-                <CountUp to={stat.value} duration={2 + i * 0.3} />
-                {stat.suffix}
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.05)] rounded-2xl overflow-hidden glass">
+            {STATS.map((s, i) => (
+              <div key={s.label} className="flex flex-col items-center justify-center py-7 px-4 group relative">
+                {/* Hover accent */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.04) 0%, transparent 70%)" }} />
+
+                <div className="font-display font-black text-[28px] md:text-[34px] tracking-[-0.03em] text-white leading-none mb-1">
+                  <AnimatedNumber to={s.value} duration={1.6 + i * 0.2} />
+                  <span className="text-[#D4AF37]">{s.suffix}</span>
+                </div>
+                <div className="eyebrow opacity-40 text-[9px]">{s.label}</div>
               </div>
-              <div className="text-[#555555] text-xs tracking-wider uppercase mt-1 font-sans">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </motion.div>
       </motion.div>
 
@@ -250,14 +266,13 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-indicator"
-        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        transition={{ delay: 2.2, duration: 1 }}
+        className="scroll-arrow"
       >
-        <span className="text-[#555555] text-[10px] tracking-[0.3em] uppercase font-sans">
-          Scroll
-        </span>
-        <ChevronDown size={14} className="text-[#D4AF37]" />
+        <div className="flex flex-col items-center gap-2">
+          <span className="eyebrow text-[9px] opacity-30">Scroll</span>
+          <div className="w-px h-10 bg-gradient-to-b from-[rgba(212,175,55,0.5)] to-transparent" />
+        </div>
       </motion.div>
     </section>
   );

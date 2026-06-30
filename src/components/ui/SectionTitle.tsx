@@ -21,59 +21,53 @@ export function SectionTitle({
   className,
 }: SectionTitleProps) {
   const alignClass = {
-    left: "text-left items-start",
+    left:   "text-left items-start",
     center: "text-center items-center",
-    right: "text-right items-end",
+    right:  "text-right items-end",
   }[align];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-      className={cn("flex flex-col gap-4 mb-16", alignClass, className)}
-    >
+    <div className={cn("flex flex-col mb-16 md:mb-20", alignClass, className)}>
       {label && (
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex items-center gap-3"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.16,1,0.3,1] }}
+          className={cn("flex items-center gap-3 mb-6", align === "center" && "justify-center")}
         >
-          <span className="w-8 h-px bg-[#D4AF37]" />
-          <span className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase font-sans">
-            {label}
-          </span>
-          <span className="w-8 h-px bg-[#D4AF37]" />
+          <span className="w-6 h-px bg-[#D4AF37] opacity-70" />
+          <span className="eyebrow opacity-70">{label}</span>
+          <span className="w-6 h-px bg-[#D4AF37] opacity-70" />
         </motion.div>
       )}
 
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight"
-      >
-        {title}{" "}
-        {highlight && (
-          <span className="text-gradient-gold">{highlight}</span>
-        )}
-      </motion.h2>
+      <div className="overflow-hidden">
+        <motion.h2
+          initial={{ y: "100%", opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, delay: label ? 0.1 : 0, ease: [0.16,1,0.3,1] }}
+          className="font-display font-black leading-[1.0] tracking-[-0.025em]"
+          style={{ fontSize: "clamp(36px, 6vw, 76px)" }}
+        >
+          <span className="text-white">{title} </span>
+          {highlight && <span className="text-gradient-gold">{highlight}</span>}
+        </motion.h2>
+      </div>
 
       {subtitle && (
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[#B8B8B8] text-lg md:text-xl max-w-2xl leading-relaxed"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.16,1,0.3,1] }}
+          className="text-[#666] text-base md:text-lg max-w-xl leading-[1.7] mt-5"
+          style={{ fontFamily: "Inter, sans-serif" }}
         >
           {subtitle}
         </motion.p>
       )}
-    </motion.div>
+    </div>
   );
 }
