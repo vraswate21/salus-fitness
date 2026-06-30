@@ -2,9 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { WhySalus } from "@/components/sections/WhySalus";
-import { Gallery } from "@/components/sections/Gallery";
 import { Membership } from "@/components/sections/Membership";
-import { Trainers } from "@/components/sections/Trainers";
 import { Transformations } from "@/components/sections/Transformations";
 import { Facilities } from "@/components/sections/Facilities";
 import { BMICalculator } from "@/components/sections/BMICalculator";
@@ -27,9 +25,7 @@ export default function Home() {
       <main className="pb-safe-mobile lg:pb-0">
         <Hero />
         <WhySalus />
-        <Gallery />
         <Membership />
-        <Trainers />
         <Transformations />
         <Facilities />
         <BMICalculator />

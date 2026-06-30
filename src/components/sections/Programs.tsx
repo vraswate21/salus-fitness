@@ -43,10 +43,10 @@ const programs = [
   },
   {
     icon: Heart,
-    title: "Women Fitness",
+    title: "Toning & Flexibility",
     duration: "8–10 Weeks",
     intensity: "Moderate",
-    desc: "Holistic program tailored for women — toning, flexibility, and hormonal health.",
+    desc: "Holistic program focused on toning, flexibility, and total-body sculpting for lasting results.",
     color: "#FF4B8B",
     tag: null,
   },

@@ -6,12 +6,11 @@ import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "About",    href: "#why-salus" },
-  { label: "Programs", href: "#programs" },
-  { label: "Pricing",  href: "#membership" },
-  { label: "Gallery",  href: "#gallery" },
-  { label: "Trainers", href: "#trainers" },
-  { label: "Contact",  href: "#footer" },
+  { label: "About",     href: "#why-salus" },
+  { label: "Programs",  href: "#programs" },
+  { label: "Pricing",   href: "#membership" },
+  { label: "Schedule",  href: "#schedule" },
+  { label: "Contact",   href: "#footer" },
 ];
 
 export function Navbar() {

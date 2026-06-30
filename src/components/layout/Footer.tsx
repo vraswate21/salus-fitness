@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, ExternalLink, MessageCircle, Mail } from "lucide-react";
 
 const QUICK_LINKS = [
-  { label: "Home",       href: "#hero" },
-  { label: "About Us",  href: "#why-salus" },
+  { label: "Home",      href: "#hero" },
+  { label: "About Us", href: "#why-salus" },
   { label: "Programs",  href: "#programs" },
   { label: "Pricing",   href: "#membership" },
-  { label: "Trainers",  href: "#trainers" },
-  { label: "Gallery",   href: "#gallery" },
   { label: "Schedule",  href: "#schedule" },
   { label: "FAQ",       href: "#faq" },
 ];
@@ -55,10 +53,10 @@ export function Footer() {
             {/* Social row */}
             <div className="flex items-center gap-2">
               {[
-                { href: "https://instagram.com/salus_fitness_gym", icon: ExternalLink, label: "Instagram", hover: "hover:border-[#E1306C] hover:text-[#E1306C]" },
-                { href: "https://wa.me/917674014383",              icon: MessageCircle, label: "WhatsApp",  hover: "hover:border-[#25D366] hover:text-[#25D366]" },
+                { href: "https://instagram.com/salus_fitnessgym", icon: ExternalLink, label: "Instagram", hover: "hover:border-[#E1306C] hover:text-[#E1306C]" },
+                { href: "https://instagram.com/xx_vikas_._",       icon: ExternalLink, label: "Owner",     hover: "hover:border-[#E1306C] hover:text-[#E1306C]" },
+                { href: "https://wa.me/917674014383",              icon: MessageCircle, label: "WhatsApp", hover: "hover:border-[#25D366] hover:text-[#25D366]" },
                 { href: "tel:7674014383",                          icon: Phone,         label: "Phone",    hover: "hover:border-[rgba(212,175,55,0.6)] hover:text-[#D4AF37]" },
-                { href: "mailto:info@salusfitness.in",             icon: Mail,          label: "Email",    hover: "hover:border-[rgba(212,175,55,0.6)] hover:text-[#D4AF37]" },
               ].map((s) => (
                 <motion.a
                   key={s.label}
@@ -175,7 +173,7 @@ export function Footer() {
         <div className="border-t border-[#0E0E0E] py-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="font-body text-[#2A2A2A] text-xs">
             © {new Date().getFullYear()} Salus Fitness. All rights reserved.
-            <span className="ml-2 text-[rgba(212,175,55,0.5)]">@salus_fitness_gym</span>
+            <span className="ml-2 text-[rgba(212,175,55,0.5)]">@salus_fitnessgym</span>
           </p>
           <p className="font-body text-[#1A1A1A] text-[11px]">
             Built with precision · Powered by passion

@@ -18,7 +18,7 @@ const REVIEWS = [
     name: "Sneha Kulkarni",
     rating: 5,
     date: "1 month ago",
-    text: "As a woman, I always wanted a safe and comfortable gym. The dedicated women's area feels genuinely premium. Priya ma'am is the best trainer I've ever had.",
+    text: "As a woman, I always wanted a safe and comfortable gym. Salus Fitness is exactly that — welcoming, clean, and the coaches here are amazing. Best decision ever.",
     initials: "SK",
     color: "#F472B6",
   },

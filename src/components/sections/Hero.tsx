@@ -17,7 +17,7 @@ const PARTICLES = Array.from({ length: 28 }, (_, i) => ({
 /* ─── Stats ─── */
 const STATS = [
   { value: 5000, suffix: "+", label: "Members" },
-  { value: 15,   suffix: "+", label: "Expert Trainers" },
+  { value: 15,   suffix: "+", label: "Programs" },
   { value: 8,    suffix: "+", label: "Years of Excellence" },
   { value: 4.9,  suffix: "",  label: "Google Rating" },
 ];
@@ -162,7 +162,7 @@ export function Hero() {
           className="flex items-center gap-4 mb-10"
         >
           <span className="w-10 h-px bg-[#D4AF37]" />
-          <span className="eyebrow opacity-80">Since 2016 · Gym & Cardio · Men & Women</span>
+          <span className="eyebrow opacity-80">Since 2016 · Premium Gym & Cardio · Nagpur</span>
           <span className="w-10 h-px bg-[#D4AF37]" />
         </motion.div>
 

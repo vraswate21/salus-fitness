@@ -14,7 +14,6 @@ const quickReplies = [
   "Free trial?",
   "Timings?",
   "Contact number?",
-  "Women's zone?",
   "Personal training?",
 ];
 
@@ -31,7 +30,7 @@ function getResponse(input: string): string {
     return "📅 Timings:\n• Mon–Sat: 6:00 AM – 10:00 PM\n• Sunday: 8:00 AM – 8:00 PM\n\nWe're open 7 days a week!";
   }
   if (q.includes("women") || q.includes("female") || q.includes("ladies") || q.includes("girl")) {
-    return "Yes! Salus Fitness has a dedicated private Women's Zone with curated equipment and female trainers. You'll feel safe, comfortable, and motivated. 🌟";
+    return "Yes! Women train at Salus Fitness. The gym has dedicated equipment areas and a comfortable, welcoming environment. Call 76740 14383 for more info! 💪";
   }
   if (q.includes("personal") || q.includes("pt") || q.includes("trainer") || q.includes("coach")) {
     return "Our certified trainers offer 1:1 Personal Training sessions. PT is included in Quarterly+ plans. Annual members get unlimited PT. Call 76740 14383 to book!";
@@ -40,7 +39,7 @@ function getResponse(input: string): string {
     return "We provide personalized diet plans with Quarterly+ memberships. Our nutrition coach Anjali creates custom plans based on your body type, goals, and lifestyle.";
   }
   if (q.includes("contact") || q.includes("number") || q.includes("phone") || q.includes("call") || q.includes("whatsapp")) {
-    return "📞 Call/WhatsApp:\n• 76740 14383\n• 86866 56564\n\n📸 Instagram: @salus_fitness_gym\n\nWe respond within 30 minutes during gym hours!";
+    return "📞 Call/WhatsApp:\n• 76740 14383\n• 86866 56564\n\n📸 Instagram: @salus_fitnessgym\n\nWe respond within 30 minutes during gym hours!";
   }
   if (q.includes("location") || q.includes("address") || q.includes("where") || q.includes("map")) {
     return "Visit us at Salus Fitness Gym! WhatsApp 76740 14383 and we'll share the exact Google Maps location. We have free parking for all members 🅿️";

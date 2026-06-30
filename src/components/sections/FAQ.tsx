@@ -15,8 +15,8 @@ const FAQS = [
     a: "Yes — we offer a complimentary free trial session for all new visitors. Simply call 76740 14383 or walk in to schedule your free workout with one of our trainers.",
   },
   {
-    q: "Is there a separate area for women?",
-    a: "Absolutely. Salus Fitness has a dedicated, private women's zone with curated equipment, female trainers, and a safe, comfortable environment.",
+    q: "Is Salus Fitness suitable for women?",
+    a: "Absolutely. Salus Fitness is a welcoming space for everyone. Women train here comfortably with proper equipment and experienced coaches. Call 76740 14383 to know more.",
   },
   {
     q: "What memberships are available?",
@@ -40,7 +40,7 @@ const FAQS = [
   },
   {
     q: "How do I contact Salus Fitness?",
-    a: "Call or WhatsApp us at 76740 14383 or 86866 56564. Also on Instagram @salus_fitness_gym. We respond within 30 minutes during gym hours.",
+    a: "Call or WhatsApp us at 76740 14383 or 86866 56564. Also on Instagram @salus_fitnessgym. We respond within 30 minutes during gym hours.",
   },
 ];
 

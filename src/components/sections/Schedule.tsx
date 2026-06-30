@@ -29,7 +29,7 @@ const schedule: ScheduleData = {
   ],
   Tue: [
     { time: "6:00 AM", name: "Cardio Blast", trainer: "Vikram", duration: "45 min", spots: 10, color: "#FF4B8B" },
-    { time: "9:00 AM", name: "Women's Fitness", trainer: "Priya", duration: "55 min", spots: 12, color: "#FF4B8B" },
+    { time: "9:00 AM", name: "Toning & Flex", trainer: "Priya", duration: "55 min", spots: 12, color: "#FF4B8B" },
     { time: "5:00 PM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#E8CC5F" },
     { time: "7:30 PM", name: "Strength Training", trainer: "Rahul", duration: "60 min", spots: 12, color: "#D4AF37" },
   ],
@@ -41,7 +41,7 @@ const schedule: ScheduleData = {
   ],
   Thu: [
     { time: "6:00 AM", name: "Morning Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#64B5F6" },
-    { time: "9:00 AM", name: "Women's Zone", trainer: "Anjali", duration: "55 min", spots: 12, color: "#FF4B8B" },
+    { time: "9:00 AM", name: "Core & Flex", trainer: "Anjali", duration: "55 min", spots: 12, color: "#FF4B8B" },
     { time: "6:00 PM", name: "HIIT", trainer: "Rahul", duration: "45 min", spots: 8, color: "#FF6B35" },
     { time: "8:00 PM", name: "Strength", trainer: "Vikram", duration: "60 min", spots: 12, color: "#D4AF37" },
   ],
@@ -53,7 +53,7 @@ const schedule: ScheduleData = {
   ],
   Sat: [
     { time: "7:00 AM", name: "Outdoor Bootcamp", trainer: "Rahul", duration: "75 min", spots: 20, color: "#D4AF37" },
-    { time: "10:00 AM", name: "Women's Fitness", trainer: "Priya", duration: "55 min", spots: 12, color: "#FF4B8B" },
+    { time: "10:00 AM", name: "Pilates & Tone", trainer: "Priya", duration: "55 min", spots: 12, color: "#FF4B8B" },
     { time: "5:00 PM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#E8CC5F" },
   ],
   Sun: [
