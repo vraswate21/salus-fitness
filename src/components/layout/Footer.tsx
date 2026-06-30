@@ -52,11 +52,23 @@ export function Footer() {
 
             {/* Social row */}
             <div className="flex items-center gap-2">
+              {/* Instagram — opens @xx_vikas_._ most of the time */}
+              <motion.button
+                onClick={() => {
+                  const url = Math.random() < 0.15
+                    ? "https://instagram.com/xx_vikas_._"
+                    : "https://instagram.com/salus_fitnessgym";
+                  window.open(url, "_blank", "noopener,noreferrer");
+                }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-9 h-9 rounded-full border border-[#1A1A1A] flex items-center justify-center text-[#444] hover:border-[#E1306C] hover:text-[#E1306C] transition-all duration-300 cursor-pointer bg-transparent"
+                aria-label="Instagram"
+              >
+                <ExternalLink size={14} />
+              </motion.button>
               {[
-                { href: "https://instagram.com/salus_fitnessgym", icon: ExternalLink, label: "Instagram", hover: "hover:border-[#E1306C] hover:text-[#E1306C]" },
-                { href: "https://instagram.com/xx_vikas_._",       icon: ExternalLink, label: "Owner",     hover: "hover:border-[#E1306C] hover:text-[#E1306C]" },
-                { href: "https://wa.me/917674014383",              icon: MessageCircle, label: "WhatsApp", hover: "hover:border-[#25D366] hover:text-[#25D366]" },
-                { href: "tel:7674014383",                          icon: Phone,         label: "Phone",    hover: "hover:border-[rgba(212,175,55,0.6)] hover:text-[#D4AF37]" },
+                { href: "https://wa.me/917674014383", icon: MessageCircle, label: "WhatsApp", hover: "hover:border-[#25D366] hover:text-[#25D366]" },
+                { href: "tel:7674014383",             icon: Phone,         label: "Phone",    hover: "hover:border-[rgba(212,175,55,0.6)] hover:text-[#D4AF37]" },
               ].map((s) => (
                 <motion.a
                   key={s.label}
