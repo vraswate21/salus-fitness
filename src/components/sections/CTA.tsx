@@ -103,13 +103,13 @@ export function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.65, duration: 0.8, ease: [0.16,1,0.3,1] }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-14"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 md:mb-14 px-4 sm:px-0"
         >
           <motion.button
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.96 }}
             onClick={() => document.querySelector("#membership")?.scrollIntoView({ behavior: "smooth" })}
-            className="flex items-center gap-2.5 bg-[#D4AF37] text-[#0A0A0A] font-sans font-bold text-[11px] tracking-[0.22em] uppercase px-10 py-5 rounded-full hover:bg-[#E8CC5F] transition-all duration-300 shadow-[0_0_60px_rgba(212,175,55,0.3)] cursor-pointer border-none"
+            className="flex items-center justify-center gap-2.5 bg-[#D4AF37] text-[#0A0A0A] font-sans font-bold text-[11px] tracking-[0.22em] uppercase px-10 py-5 rounded-full hover:bg-[#E8CC5F] transition-all duration-300 shadow-[0_0_60px_rgba(212,175,55,0.3)] cursor-pointer border-none min-h-[56px]"
           >
             Join Today
             <ArrowRight size={14} />
@@ -119,7 +119,7 @@ export function CTA() {
             href="tel:7674014383"
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.96 }}
-            className="flex items-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-10 py-5 rounded-full text-white border border-[rgba(255,255,255,0.1)] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] transition-all duration-300"
+            className="flex items-center justify-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-10 py-5 rounded-full text-white border border-[rgba(255,255,255,0.1)] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] transition-all duration-300 min-h-[56px]"
           >
             <Phone size={13} />
             Call Now

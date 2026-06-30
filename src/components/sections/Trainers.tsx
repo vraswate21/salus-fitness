@@ -65,7 +65,7 @@ export function Trainers() {
           subtitle="Our certified professionals bring expertise, passion, and personalized attention to every session."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {trainers.map((trainer, i) => (
             <motion.div
               key={trainer.name}
@@ -79,7 +79,7 @@ export function Trainers() {
               <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-[rgba(212,175,55,0.25)] group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
                 {/* Avatar area */}
                 <div
-                  className="relative h-56 flex items-center justify-center overflow-hidden"
+                  className="relative h-44 md:h-56 flex items-center justify-center overflow-hidden"
                   style={{
                     background: `linear-gradient(135deg, ${trainer.color}10 0%, #0d0d0d 100%)`,
                   }}
@@ -156,7 +156,7 @@ export function Trainers() {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
-                      className="flex-1 flex items-center justify-center gap-1.5 border border-[#2A2A2A] text-[#B8B8B8] hover:border-[#E1306C] hover:text-[#E1306C] text-xs py-2.5 rounded-xl transition-all duration-300"
+                      className="flex-1 flex items-center justify-center gap-1.5 border border-[#2A2A2A] text-[#B8B8B8] hover:border-[#E1306C] hover:text-[#E1306C] text-xs py-3 rounded-xl transition-all duration-300 min-h-[44px]"
                     >
                       <ExternalLink size={12} />
                       Follow
@@ -164,7 +164,7 @@ export function Trainers() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.97 }}
-                      className="flex-1 text-[#0A0A0A] font-bold text-xs py-2.5 rounded-xl cursor-pointer border-none transition-all duration-300"
+                      className="flex-1 text-[#0A0A0A] font-bold text-xs py-3 rounded-xl cursor-pointer border-none transition-all duration-300 min-h-[44px]"
                       style={{ background: trainer.color }}
                     >
                       Book PT

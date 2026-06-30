@@ -24,7 +24,7 @@ export default function Home() {
       <Cursor />
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main className="pb-safe-mobile lg:pb-0">
         <Hero />
         <WhySalus />
         <Gallery />

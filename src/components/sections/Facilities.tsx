@@ -40,7 +40,7 @@ export function Facilities() {
           subtitle="Every convenience you need, precisely where you need it."
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
           {facilities.map((facility, i) => (
             <motion.div
               key={facility.label}
@@ -49,10 +49,10 @@ export function Facilities() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               whileHover={{ y: -6, scale: 1.05 }}
-              className="group flex flex-col items-center text-center p-5 rounded-2xl bg-[#111] border border-[#1E1E1E] hover:border-[rgba(212,175,55,0.25)] transition-all duration-400 cursor-default"
+              className="group flex flex-col items-center text-center p-3 md:p-5 rounded-xl md:rounded-2xl bg-[#111] border border-[#1E1E1E] hover:border-[rgba(212,175,55,0.25)] transition-all duration-400 cursor-default"
             >
               <motion.div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all duration-400"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-2 md:mb-3 transition-all duration-400"
                 style={{ background: "rgba(212,175,55,0.08)" }}
                 whileHover={{ background: "rgba(212,175,55,0.15)", rotate: 5 }}
               >

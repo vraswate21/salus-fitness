@@ -4,14 +4,16 @@ import { useEffect } from "react";
 
 export function useLenis() {
   useEffect(() => {
+    // Disable Lenis on touch/mobile — native inertia scroll is better
+    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
+
     let lenis: unknown;
 
-    async function initLenis() {
+    async function init() {
       const { default: Lenis } = await import("@studio-freight/lenis");
       lenis = new Lenis({
-        duration: 1.4,
+        duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        touchMultiplier: 2,
         infinite: false,
       });
 
@@ -22,7 +24,7 @@ export function useLenis() {
       requestAnimationFrame(raf);
     }
 
-    initLenis();
+    init();
 
     return () => {
       if (lenis) (lenis as { destroy: () => void }).destroy();

@@ -69,7 +69,7 @@ export function FAQ() {
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none group"
+                className="w-full flex items-center justify-between py-4 md:py-5 text-left cursor-pointer bg-transparent border-none group min-h-[56px]"
               >
                 <span
                   className="font-sans font-medium text-[14px] leading-snug pr-6 transition-colors duration-300"
@@ -99,7 +99,7 @@ export function FAQ() {
                     transition={{ duration: 0.35, ease: [0.16,1,0.3,1] }}
                     style={{ overflow: "hidden" }}
                   >
-                    <div className="pb-6 pr-12">
+                    <div className="pb-5 md:pb-6 pr-8 md:pr-12">
                       <p className="font-body text-[#666] text-sm leading-[1.75]">{faq.a}</p>
                     </div>
                   </motion.div>

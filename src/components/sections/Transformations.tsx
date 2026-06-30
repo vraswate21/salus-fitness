@@ -77,7 +77,7 @@ export function Transformations() {
           subtitle="These results belong to real Salus Fitness members — no filters, no shortcuts."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {stories.map((story, i) => (
             <motion.div
               key={story.name}

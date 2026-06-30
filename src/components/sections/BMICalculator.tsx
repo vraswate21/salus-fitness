@@ -96,10 +96,10 @@ export function BMICalculator() {
         />
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
             {/* Input Card */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
@@ -183,7 +183,7 @@ export function BMICalculator() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleCalculate}
-                className="w-full bg-[#D4AF37] text-[#0A0A0A] font-black text-sm tracking-[0.15em] uppercase py-4 rounded-xl transition-all duration-300 hover:bg-[#E8CC5F] cursor-pointer border-none shadow-[0_0_30px_rgba(212,175,55,0.2)]"
+                className="w-full bg-[#D4AF37] text-[#0A0A0A] font-black text-sm tracking-[0.15em] uppercase py-4 rounded-xl transition-all duration-300 hover:bg-[#E8CC5F] cursor-pointer border-none shadow-[0_0_30px_rgba(212,175,55,0.2)] min-h-[52px]"
               >
                 <span className="flex items-center justify-center gap-2">
                   Calculate BMI
@@ -194,7 +194,7 @@ export function BMICalculator() {
 
             {/* Result Card */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}

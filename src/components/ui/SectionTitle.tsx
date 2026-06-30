@@ -62,7 +62,7 @@ export function SectionTitle({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.16,1,0.3,1] }}
-          className="text-[#666] text-base md:text-lg max-w-xl leading-[1.7] mt-5"
+          className="text-[#666] text-sm md:text-base lg:text-lg max-w-sm md:max-w-xl leading-[1.75] mt-4 md:mt-5"
           style={{ fontFamily: "Inter, sans-serif" }}
         >
           {subtitle}

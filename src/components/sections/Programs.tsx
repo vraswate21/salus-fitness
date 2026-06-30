@@ -88,7 +88,7 @@ export function Programs() {
           subtitle="Scientifically designed programs to match every goal, level, and lifestyle."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
           {programs.map((program, i) => (
             <motion.div
               key={program.title}
@@ -120,7 +120,7 @@ export function Programs() {
                   {program.tag}
                 </div>
               )}
-              {!program.tag && <div className="h-7 mb-4" />}
+              {!program.tag && <div className="h-6 mb-4 hidden sm:block" />}
 
               {/* Icon */}
               <div

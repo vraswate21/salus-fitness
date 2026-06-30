@@ -98,7 +98,7 @@ export function Reviews() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
-            className="flex-shrink-0 glass border border-[rgba(255,255,255,0.05)] rounded-2xl px-6 py-5 flex items-center gap-5"
+            className="flex-shrink-0 glass border border-[rgba(255,255,255,0.05)] rounded-2xl px-5 py-4 md:px-6 md:py-5 flex items-center gap-4 md:gap-5"
           >
             <div className="text-center">
               <div className="font-display font-black text-4xl text-white leading-none tracking-[-0.03em]">4.9</div>
@@ -125,7 +125,7 @@ export function Reviews() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -24 }}
             transition={{ duration: 0.45, ease: [0.16,1,0.3,1] }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"
+            className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10"
           >
             {visible.map((r, i) => (
               <motion.div

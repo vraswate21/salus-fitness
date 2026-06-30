@@ -152,7 +152,7 @@ export function Hero() {
       {/* ─── Content ─── */}
       <motion.div
         style={{ y: contentY, opacity: contentOp }}
-        className="relative z-10 container-wide flex flex-col items-center text-center pt-28 pb-12"
+        className="relative z-10 container-wide flex flex-col items-center text-center pt-24 md:pt-28 pb-10 md:pb-12"
       >
         {/* Eyebrow */}
         <motion.div
@@ -173,7 +173,7 @@ export function Hero() {
             animate={{ y: 0 }}
             transition={{ duration: 1.1, delay: 0.55, ease: [0.16,1,0.3,1] }}
             className="font-display font-black leading-[0.88] tracking-[-0.03em] text-white"
-            style={{ fontSize: "clamp(72px,13.5vw,190px)" }}
+            style={{ fontSize: "clamp(44px,12vw,190px)" }}
           >
             TRANSFORM
           </motion.h1>
@@ -186,7 +186,7 @@ export function Hero() {
             animate={{ y: 0 }}
             transition={{ duration: 1.1, delay: 0.7, ease: [0.16,1,0.3,1] }}
             className="font-display font-black leading-[0.88] tracking-[-0.03em] text-gradient-gold"
-            style={{ fontSize: "clamp(72px,13.5vw,190px)" }}
+            style={{ fontSize: "clamp(44px,12vw,190px)" }}
           >
             YOUR BODY
           </motion.h1>
@@ -197,7 +197,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.95, ease: [0.16,1,0.3,1] }}
-          className="font-body text-[#888] text-lg md:text-xl max-w-md leading-[1.65] mb-12"
+          className="font-body text-[#888] text-base md:text-xl max-w-xs md:max-w-md leading-[1.65] mb-10 md:mb-12"
         >
           Build strength. Burn fat. Become someone new.
         </motion.p>
@@ -207,14 +207,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.1, ease: [0.16,1,0.3,1] }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-24"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto mb-16 md:mb-24 px-4 sm:px-0"
         >
           {/* Primary */}
           <motion.button
             whileHover={{ scale: 1.04, y: -3 }}
             whileTap={{ scale: 0.96 }}
             onClick={() => scrollTo("#membership")}
-            className="group relative flex items-center gap-3 bg-[#D4AF37] text-[#0A0A0A] font-sans font-bold text-[11px] tracking-[0.22em] uppercase px-9 py-[17px] rounded-full overflow-hidden transition-colors duration-300 hover:bg-[#E8CC5F] cursor-pointer border-none glow-gold"
+            className="group relative flex items-center justify-center gap-3 bg-[#D4AF37] text-[#0A0A0A] font-sans font-bold text-[11px] tracking-[0.22em] uppercase px-9 py-[17px] rounded-full overflow-hidden transition-colors duration-300 hover:bg-[#E8CC5F] cursor-pointer border-none glow-gold min-h-[52px]"
           >
             <span className="relative z-10">Join Today</span>
             <motion.span
@@ -231,7 +231,7 @@ export function Hero() {
             whileHover={{ scale: 1.04, y: -3 }}
             whileTap={{ scale: 0.96 }}
             onClick={() => scrollTo("#bmi")}
-            className="flex items-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-9 py-[17px] rounded-full text-white border border-[rgba(255,255,255,0.12)] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] backdrop-blur-sm transition-all duration-300 cursor-pointer bg-transparent"
+            className="flex items-center justify-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-9 py-[17px] rounded-full text-white border border-[rgba(255,255,255,0.12)] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] backdrop-blur-sm transition-all duration-300 cursor-pointer bg-transparent min-h-[52px]"
           >
             Free Trial
           </motion.button>
@@ -242,7 +242,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.3, ease: [0.16,1,0.3,1] }}
-          className="w-full max-w-2xl"
+          className="w-full max-w-2xl px-0"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.05)] rounded-2xl overflow-hidden glass">
             {STATS.map((s, i) => (

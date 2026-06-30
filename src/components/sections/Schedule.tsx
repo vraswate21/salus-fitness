@@ -87,7 +87,7 @@ export function Schedule() {
               onClick={() => setActiveDay(day)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex-shrink-0 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer border-none"
+              className="flex-shrink-0 px-5 md:px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer border-none min-h-[44px] min-w-[56px]"
               style={
                 activeDay === day
                   ? { background: "#D4AF37", color: "#0A0A0A" }
@@ -145,8 +145,8 @@ export function Schedule() {
 
                 <motion.button
                   whileHover={{ scale: 1.04 }}
-                  className="mt-4 w-full py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none opacity-0 group-hover:opacity-100"
-                  style={{ background: `${cls.color}20`, color: cls.color }}
+                  className="mt-4 w-full py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none min-h-[44px] opacity-100 lg:opacity-0 lg:group-hover:opacity-100"
+                  style={{ background: `${cls.color}15`, color: cls.color }}
                 >
                   Book Now
                 </motion.button>

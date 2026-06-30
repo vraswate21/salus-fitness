@@ -57,7 +57,7 @@ export function WhySalus() {
         </div>
 
         {/* Feature grid — no gap, divided by 1px lines */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[#141414]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[#111]">
           {FEATURES.map((f, i) => (
             <motion.div
               key={f.num}
@@ -65,7 +65,7 @@ export function WhySalus() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: (i % 5) * 0.07, ease: [0.16,1,0.3,1] }}
-              className="group relative bg-[#0A0A0A] p-7 cursor-default overflow-hidden transition-colors duration-400 hover:bg-[#0E0E0E]"
+              className="group relative bg-[#0A0A0A] p-5 md:p-7 cursor-default overflow-hidden transition-colors duration-400 hover:bg-[#0E0E0E]"
             >
               {/* Hover: gold top border draw */}
               <div className="absolute top-0 left-0 right-0 h-px bg-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
@@ -73,7 +73,7 @@ export function WhySalus() {
               {/* Big number — ghost text */}
               <div
                 className="font-display font-black text-[#141414] group-hover:text-[rgba(212,175,55,0.07)] transition-colors duration-500 select-none leading-none mb-4"
-                style={{ fontSize: "clamp(44px, 5.5vw, 72px)" }}
+                style={{ fontSize: "clamp(32px, 7vw, 72px)" }}
               >
                 {f.num}
               </div>

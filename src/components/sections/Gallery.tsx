@@ -127,7 +127,7 @@ export function Gallery() {
   const [selected, setSelected] = useState<(typeof CARDS)[0] | null>(null);
 
   const getClass = (size: string) => ({
-    tall:   "row-span-2",
+    tall:   "md:row-span-2",
     wide:   "md:col-span-2",
     square: "",
   }[size] ?? "");
@@ -149,7 +149,7 @@ export function Gallery() {
         />
 
         {/* Masonry grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-2 md:gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] gap-2 md:gap-3">
           {CARDS.map((card, i) => (
             <motion.div
               key={card.id}

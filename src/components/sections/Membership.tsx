@@ -94,6 +94,13 @@ export function Membership() {
           subtitle="Flexible plans. No hidden costs. Start with a free trial."
         />
 
+        {/* Mobile swipe hint */}
+        <p className="flex md:hidden items-center gap-1.5 justify-center font-body text-[#333] text-[11px] mb-6">
+          <span>←</span>
+          <span>Swipe to see all plans</span>
+          <span>→</span>
+        </p>
+
         {/* Trust signals */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -111,7 +118,8 @@ export function Membership() {
         </motion.div>
 
         {/* Plans grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        {/* Mobile: horizontal snap scroll — Desktop: grid */}
+        <div className="snap-scroll-mobile md:grid md:grid-cols-2 xl:grid-cols-4 gap-4 -mx-6 px-6 md:mx-0 md:px-0">
           {PLANS.map((plan, i) => {
             const isHovered = hovered === plan.id;
             return (
@@ -123,7 +131,7 @@ export function Membership() {
                 transition={{ duration: 0.7, delay: i * 0.09, ease: [0.16,1,0.3,1] }}
                 onHoverStart={() => setHovered(plan.id)}
                 onHoverEnd={() => setHovered(null)}
-                className="relative flex flex-col"
+                className="snap-item relative flex flex-col w-[80vw] sm:w-[70vw] md:w-auto flex-shrink-0 md:flex-shrink"
               >
                 {/* Highlighted plan outer glow */}
                 {plan.highlight && (

@@ -101,7 +101,7 @@ export function AIChat() {
         onClick={() => setOpen(!open)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
-        className="fixed bottom-20 right-5 md:bottom-8 md:right-8 z-50 w-14 h-14 rounded-full bg-[#D4AF37] text-[#0A0A0A] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer border-none pulse-gold"
+        className="fixed bottom-[88px] right-4 md:bottom-8 md:right-8 z-[60] w-14 h-14 rounded-full bg-[#D4AF37] text-[#0A0A0A] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer border-none pulse-ring"
         aria-label="Open AI Chat"
       >
         <AnimatePresence mode="wait">
@@ -137,7 +137,7 @@ export function AIChat() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-36 right-5 md:bottom-28 md:right-8 z-50 w-80 md:w-96 bg-[#0F0F0F] border border-[rgba(212,175,55,0.2)] rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.7),0_0_30px_rgba(212,175,55,0.08)]"
+            className="fixed bottom-[160px] right-4 md:bottom-28 md:right-8 z-[60] w-[min(calc(100vw-32px),360px)] md:w-96 bg-[#0F0F0F] border border-[rgba(212,175,55,0.2)] rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.7),0_0_30px_rgba(212,175,55,0.08)]"
           >
             {/* Header */}
             <div className="bg-[#111] border-b border-[rgba(212,175,55,0.1)] px-4 py-3 flex items-center gap-3">
@@ -157,7 +157,7 @@ export function AIChat() {
             </div>
 
             {/* Messages */}
-            <div className="h-72 overflow-y-auto p-4 space-y-3 hide-scrollbar">
+            <div className="h-60 md:h-72 overflow-y-auto p-4 space-y-3 hide-scrollbar">
               {messages.map((msg, i) => (
                 <motion.div
                   key={i}
