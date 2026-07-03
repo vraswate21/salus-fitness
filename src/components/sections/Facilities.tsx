@@ -24,7 +24,7 @@ const facilities = [
 
 export function Facilities() {
   return (
-    <section id="facilities" className="section-padding bg-[#0A0A0A] relative overflow-hidden">
+    <section id="facilities" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none"
         style={{
@@ -49,19 +49,19 @@ export function Facilities() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               whileHover={{ y: -6, scale: 1.05 }}
-              className="group flex flex-col items-center text-center p-3 md:p-5 rounded-xl md:rounded-2xl bg-[#111] border border-[#1E1E1E] hover:border-[rgba(212,175,55,0.25)] transition-all duration-400 cursor-default"
+              className="group flex flex-col items-center text-center p-3 md:p-5 rounded-xl md:rounded-2xl bg-[#CAC6B9] border border-[#A29D8F] hover:border-[rgba(150,105,10,0.35)] transition-all duration-400 cursor-default"
             >
               <motion.div
                 className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-2 md:mb-3 transition-all duration-400"
-                style={{ background: "rgba(212,175,55,0.08)" }}
-                whileHover={{ background: "rgba(212,175,55,0.15)", rotate: 5 }}
+                style={{ background: "rgba(150,105,10,0.1)" }}
+                whileHover={{ background: "rgba(150,105,10,0.18)", rotate: 5 }}
               >
-                <facility.icon size={20} className="text-[#D4AF37]" />
+                <facility.icon size={20} className="text-[#96690A]" />
               </motion.div>
-              <span className="font-sans font-semibold text-white text-xs leading-snug mb-1">
+              <span className="font-sans font-semibold text-[#1C1914] text-xs leading-snug mb-1">
                 {facility.label}
               </span>
-              <span className="text-[#444] text-[10px] font-body">{facility.sub}</span>
+              <span className="text-[#8C8776] text-[10px] font-body">{facility.sub}</span>
             </motion.div>
           ))}
         </div>

@@ -133,7 +133,7 @@ export function Gallery() {
   }[size] ?? "");
 
   return (
-    <section id="gallery" className="section-padding bg-[#080808] relative overflow-hidden">
+    <section id="gallery" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       {/* Background */}
       <div
         className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
@@ -206,14 +206,14 @@ export function Gallery() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-center text-[#333] text-sm mt-10 font-body"
+          className="text-center text-[#8C8776] text-sm mt-10 font-body"
         >
           See more on Instagram{" "}
           <a
             href="https://instagram.com/salus_fitness_gym"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#D4AF37] hover:underline"
+            className="text-[#96690A] hover:underline"
           >
             @salus_fitness_gym
           </a>

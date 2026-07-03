@@ -71,7 +71,7 @@ export function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* ─── Background layers ─── */}
-      <div className="absolute inset-0 bg-[#060606]">
+      <div className="absolute inset-0 bg-[#B7B3A7]">
         {/* Grid */}
         <div className="absolute inset-0 cinema-grid" />
 
@@ -122,7 +122,7 @@ export function Hero() {
         {PARTICLES.map((p, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-[#D4AF37]"
+            className="absolute rounded-full bg-[#96690A]"
             style={{
               left: `${p.left}%`,
               top:  `${p.top}%`,
@@ -161,9 +161,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16,1,0.3,1] }}
           className="flex items-center gap-4 mb-10"
         >
-          <span className="w-10 h-px bg-[#D4AF37]" />
+          <span className="w-10 h-px bg-[#96690A]" />
           <span className="eyebrow opacity-80">Since 2016 · Premium Gym & Cardio · Hyderabad</span>
-          <span className="w-10 h-px bg-[#D4AF37]" />
+          <span className="w-10 h-px bg-[#96690A]" />
         </motion.div>
 
         {/* Headline — single h1 for SEO */}
@@ -173,7 +173,7 @@ export function Hero() {
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
               transition={{ duration: 1.1, delay: 0.55, ease: [0.16,1,0.3,1] }}
-              className="block font-display font-black leading-[0.88] tracking-[-0.03em] text-white"
+              className="block font-display font-black leading-[0.88] tracking-[-0.03em] text-[#1C1914]"
               style={{ fontSize: "clamp(44px,12vw,190px)" }}
             >
               TRANSFORM
@@ -197,7 +197,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.95, ease: [0.16,1,0.3,1] }}
-          className="font-body text-[#888] text-base md:text-xl max-w-xs md:max-w-md leading-[1.65] mb-10 md:mb-12"
+          className="font-body text-[#4A453B] text-base md:text-xl max-w-xs md:max-w-md leading-[1.65] mb-10 md:mb-12"
         >
           Build strength. Burn fat. Become someone new.
         </motion.p>
@@ -231,7 +231,7 @@ export function Hero() {
             whileHover={{ scale: 1.04, y: -3 }}
             whileTap={{ scale: 0.96 }}
             onClick={() => scrollTo("#bmi")}
-            className="flex items-center justify-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-9 py-[17px] rounded-full text-white border border-[rgba(255,255,255,0.12)] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] backdrop-blur-sm transition-all duration-300 cursor-pointer bg-transparent min-h-[52px]"
+            className="flex items-center justify-center gap-2 font-sans font-semibold text-[11px] tracking-[0.2em] uppercase px-9 py-[17px] rounded-full text-[#1C1914] border border-[rgba(0,0,0,0.15)] hover:border-[rgba(150,105,10,0.4)] hover:text-[#96690A] backdrop-blur-sm transition-all duration-300 cursor-pointer bg-transparent min-h-[52px]"
           >
             Free Trial
           </motion.button>
@@ -244,16 +244,16 @@ export function Hero() {
           transition={{ duration: 1, delay: 1.3, ease: [0.16,1,0.3,1] }}
           className="w-full max-w-2xl px-0"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.05)] rounded-2xl overflow-hidden glass">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[rgba(0,0,0,0.08)] border border-[rgba(0,0,0,0.08)] rounded-2xl overflow-hidden glass">
             {STATS.map((s, i) => (
               <div key={s.label} className="flex flex-col items-center justify-center py-7 px-4 group relative">
                 {/* Hover accent */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.04) 0%, transparent 70%)" }} />
 
-                <div className="font-display font-black text-[28px] md:text-[34px] tracking-[-0.03em] text-white leading-none mb-1">
+                <div className="font-display font-black text-[28px] md:text-[34px] tracking-[-0.03em] text-[#1C1914] leading-none mb-1">
                   <AnimatedNumber to={s.value} duration={1.6 + i * 0.2} />
-                  <span className="text-[#D4AF37]">{s.suffix}</span>
+                  <span className="text-[#96690A]">{s.suffix}</span>
                 </div>
                 <div className="eyebrow opacity-40 text-[9px]">{s.label}</div>
               </div>

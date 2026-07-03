@@ -12,7 +12,7 @@ const REVIEWS = [
     date: "2 weeks ago",
     text: "Best gym in Hyderabad, no doubt. Equipment is top quality and the trainers are extremely knowledgeable. Lost 10 kg in 3 months — results I never got anywhere else.",
     initials: "RK",
-    color: "#D4AF37",
+    color: "#96690A",
   },
   {
     name: "Priya Reddy",
@@ -20,7 +20,7 @@ const REVIEWS = [
     date: "1 month ago",
     text: "Very clean and well-maintained gym. The coaches are supportive and the environment is welcoming. I feel so comfortable here. Highly recommend to everyone!",
     initials: "PR",
-    color: "#F472B6",
+    color: "#C2185B",
   },
   {
     name: "Aakash Rao",
@@ -28,7 +28,7 @@ const REVIEWS = [
     date: "3 weeks ago",
     text: "Annual plan is absolutely worth it. AC facility, great music, excellent cleanliness. Gained solid muscle in 4 months with the trainer's guidance. 10/10.",
     initials: "AR",
-    color: "#D4AF37",
+    color: "#96690A",
   },
   {
     name: "Divya Sharma",
@@ -36,7 +36,7 @@ const REVIEWS = [
     date: "2 months ago",
     text: "The diet plan combined with the workout sessions has been a game-changer for me. Trainers track your progress and genuinely push you to be better. Love it here.",
     initials: "DS",
-    color: "#60A5FA",
+    color: "#1D4ED8",
   },
   {
     name: "Suresh Naidu",
@@ -44,7 +44,7 @@ const REVIEWS = [
     date: "1 week ago",
     text: "Amazing gym on Green Hills Colony Road. Very affordable membership and the facilities are premium. The free trial session convinced me instantly. Great place!",
     initials: "SN",
-    color: "#D4AF37",
+    color: "#96690A",
   },
   {
     name: "Kavitha Menon",
@@ -52,7 +52,7 @@ const REVIEWS = [
     date: "3 months ago",
     text: "Started as a complete beginner and felt so welcome from day one. Six months later my body and confidence have completely transformed. The community is special.",
     initials: "KM",
-    color: "#A78BFA",
+    color: "#6D28D9",
   },
 ];
 
@@ -60,7 +60,7 @@ function Stars({ n }: { n: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} size={11} fill={i < n ? "#D4AF37" : "none"} className={i < n ? "text-[#D4AF37]" : "text-[#2A2A2A]"} />
+        <Star key={i} size={11} fill={i < n ? "#96690A" : "none"} className={i < n ? "text-[#96690A]" : "text-[#A29D8F]"} />
       ))}
     </div>
   );
@@ -73,7 +73,7 @@ export function Reviews() {
   const visible = REVIEWS.slice(page * perPage, page * perPage + perPage);
 
   return (
-    <section id="reviews" className="section-padding bg-[#070707] relative overflow-hidden">
+    <section id="reviews" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       <div
         className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse at top right, rgba(212,175,55,0.035) 0%, transparent 65%)" }}
@@ -98,18 +98,18 @@ export function Reviews() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
-            className="flex-shrink-0 glass border border-[rgba(255,255,255,0.05)] rounded-2xl px-5 py-4 md:px-6 md:py-5 flex items-center gap-4 md:gap-5"
+            className="flex-shrink-0 glass border border-[rgba(0,0,0,0.08)] rounded-2xl px-5 py-4 md:px-6 md:py-5 flex items-center gap-4 md:gap-5"
           >
             <div className="text-center">
-              <div className="font-display font-black text-4xl text-white leading-none tracking-[-0.03em]">4.5</div>
+              <div className="font-display font-black text-4xl text-[#1C1914] leading-none tracking-[-0.03em]">4.5</div>
               <div className="flex justify-center mt-1.5 mb-1">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={10} fill={i < 4 ? "#D4AF37" : "none"} strokeWidth={i < 4 ? 0 : 1.5} className={i < 4 ? "text-[#D4AF37]" : "text-[#D4AF37]"} />
+                  <Star key={i} size={10} fill={i < 4 ? "#96690A" : "none"} strokeWidth={i < 4 ? 0 : 1.5} className={i < 4 ? "text-[#96690A]" : "text-[#96690A]"} />
                 ))}
               </div>
-              <div className="font-body text-[#444] text-[10px] tracking-wider">Google Rating</div>
+              <div className="font-body text-[#8C8776] text-[10px] tracking-wider">Google Rating</div>
             </div>
-            <div className="w-px h-10 bg-[#1A1A1A]" />
+            <div className="w-px h-10 bg-[#A29D8F]" />
             <div className="text-center">
               <a
                 href="https://maps.google.com/maps?q=Salus+Fitness+Gym+Hyderabad"
@@ -117,8 +117,8 @@ export function Reviews() {
                 rel="noopener noreferrer"
                 className="block hover:opacity-80 transition-opacity"
               >
-                <div className="font-display font-black text-2xl text-white leading-none tracking-[-0.02em]">185</div>
-                <div className="font-body text-[#444] text-[10px] tracking-wider mt-1.5">Google Reviews</div>
+                <div className="font-display font-black text-2xl text-[#1C1914] leading-none tracking-[-0.02em]">185</div>
+                <div className="font-body text-[#8C8776] text-[10px] tracking-wider mt-1.5">Google Reviews</div>
               </a>
             </div>
           </motion.div>
@@ -140,7 +140,7 @@ export function Reviews() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08, ease: [0.16,1,0.3,1] }}
-                className="group relative bg-[#0D0D0D] border border-[#141414] rounded-2xl p-6 hover:border-[rgba(212,175,55,0.15)] transition-all duration-400 overflow-hidden"
+                className="group relative bg-[#CDC9BC] border border-[#A29D8F] rounded-2xl p-6 hover:border-[rgba(150,105,10,0.3)] transition-all duration-400 overflow-hidden"
               >
                 {/* Hover: color top line */}
                 <div
@@ -157,14 +157,14 @@ export function Reviews() {
                     {r.initials}
                   </div>
                   <div>
-                    <div className="font-sans font-semibold text-white text-[13px]">{r.name}</div>
-                    <div className="font-body text-[#333] text-[11px] mt-0.5">{r.date}</div>
+                    <div className="font-sans font-semibold text-[#1C1914] text-[13px]">{r.name}</div>
+                    <div className="font-body text-[#8C8776] text-[11px] mt-0.5">{r.date}</div>
                   </div>
                 </div>
 
                 <Stars n={r.rating} />
 
-                <p className="font-body text-[#666] text-[13px] leading-[1.75] mt-3">
+                <p className="font-body text-[#6B6658] text-[13px] leading-[1.75] mt-3">
                   &ldquo;{r.text}&rdquo;
                 </p>
               </motion.div>
@@ -179,7 +179,7 @@ export function Reviews() {
             whileTap={{ scale: 0.92 }}
             onClick={() => setPage((p) => Math.max(0, p - 1))}
             disabled={page === 0}
-            className="w-9 h-9 rounded-full border border-[#1E1E1E] flex items-center justify-center text-[#555] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 cursor-pointer bg-transparent"
+            className="w-9 h-9 rounded-full border border-[#A29D8F] flex items-center justify-center text-[#6B6658] hover:border-[rgba(150,105,10,0.4)] hover:text-[#96690A] disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 cursor-pointer bg-transparent"
           >
             <ChevronLeft size={15} />
           </motion.button>
@@ -190,7 +190,7 @@ export function Reviews() {
                 key={i}
                 onClick={() => setPage(i)}
                 className="rounded-full transition-all duration-300 cursor-pointer border-none"
-                style={{ width: page === i ? 22 : 6, height: 6, background: page === i ? "#D4AF37" : "#1E1E1E" }}
+                style={{ width: page === i ? 22 : 6, height: 6, background: page === i ? "#96690A" : "#A29D8F" }}
               />
             ))}
           </div>
@@ -200,7 +200,7 @@ export function Reviews() {
             whileTap={{ scale: 0.92 }}
             onClick={() => setPage((p) => Math.min(total - 1, p + 1))}
             disabled={page === total - 1}
-            className="w-9 h-9 rounded-full border border-[#1E1E1E] flex items-center justify-center text-[#555] hover:border-[rgba(212,175,55,0.35)] hover:text-[#D4AF37] disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 cursor-pointer bg-transparent"
+            className="w-9 h-9 rounded-full border border-[#A29D8F] flex items-center justify-center text-[#6B6658] hover:border-[rgba(150,105,10,0.4)] hover:text-[#96690A] disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 cursor-pointer bg-transparent"
           >
             <ChevronRight size={15} />
           </motion.button>

@@ -36,9 +36,9 @@ export function SectionTitle({
           transition={{ duration: 0.6, ease: [0.16,1,0.3,1] }}
           className={cn("flex items-center gap-3 mb-6", align === "center" && "justify-center")}
         >
-          <span className="w-6 h-px bg-[#D4AF37] opacity-70" />
+          <span className="w-6 h-px bg-[#96690A] opacity-70" />
           <span className="eyebrow opacity-70">{label}</span>
-          <span className="w-6 h-px bg-[#D4AF37] opacity-70" />
+          <span className="w-6 h-px bg-[#96690A] opacity-70" />
         </motion.div>
       )}
 
@@ -51,7 +51,7 @@ export function SectionTitle({
           className="font-display font-black leading-[1.0] tracking-[-0.025em]"
           style={{ fontSize: "clamp(36px, 6vw, 76px)" }}
         >
-          <span className="text-white">{title} </span>
+          <span className="text-[#1C1914]">{title} </span>
           {highlight && <span className="text-gradient-gold">{highlight}</span>}
         </motion.h2>
       </div>
@@ -62,7 +62,7 @@ export function SectionTitle({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.16,1,0.3,1] }}
-          className="text-[#666] text-sm md:text-base lg:text-lg max-w-sm md:max-w-xl leading-[1.75] mt-4 md:mt-5"
+          className="text-[#6B6658] text-sm md:text-base lg:text-lg max-w-sm md:max-w-xl leading-[1.75] mt-4 md:mt-5"
           style={{ fontFamily: "Inter, sans-serif" }}
         >
           {subtitle}

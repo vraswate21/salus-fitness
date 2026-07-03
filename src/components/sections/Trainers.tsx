@@ -12,7 +12,7 @@ const trainers = [
     specialization: "Strength & Powerlifting",
     cert: "ISSA Certified",
     initials: "RS",
-    color: "#D4AF37",
+    color: "#96690A",
     ig: "salus_fitness_gym",
   },
   {
@@ -22,7 +22,7 @@ const trainers = [
     specialization: "Yoga & Functional",
     cert: "ACE Certified",
     initials: "PM",
-    color: "#E8CC5F",
+    color: "#8B6F0F",
     ig: "salus_fitness_gym",
   },
   {
@@ -32,7 +32,7 @@ const trainers = [
     specialization: "HIIT & Cardio",
     cert: "NASM Certified",
     initials: "VN",
-    color: "#00E676",
+    color: "#0A7A4E",
     ig: "salus_fitness_gym",
   },
   {
@@ -42,14 +42,14 @@ const trainers = [
     specialization: "Diet & Wellness",
     cert: "Precision Nutrition",
     initials: "AS",
-    color: "#D4AF37",
+    color: "#96690A",
     ig: "salus_fitness_gym",
   },
 ];
 
 export function Trainers() {
   return (
-    <section id="trainers" className="section-padding bg-[#090909] relative overflow-hidden">
+    <section id="trainers" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       <div
         className="absolute right-0 bottom-0 w-[600px] h-[600px] pointer-events-none"
         style={{
@@ -76,12 +76,12 @@ export function Trainers() {
               whileHover={{ y: -10 }}
               className="group relative"
             >
-              <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-[rgba(212,175,55,0.25)] group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+              <div className="bg-[#CAC6B9] border border-[#A29D8F] rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-[rgba(150,105,10,0.35)] group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.2)]">
                 {/* Avatar area */}
                 <div
                   className="relative h-44 md:h-56 flex items-center justify-center overflow-hidden"
                   style={{
-                    background: `linear-gradient(135deg, ${trainer.color}10 0%, #0d0d0d 100%)`,
+                    background: `linear-gradient(135deg, ${trainer.color}10 0%, #C4C0B4 100%)`,
                   }}
                 >
                   {/* Background pattern */}
@@ -132,19 +132,19 @@ export function Trainers() {
 
                 {/* Info */}
                 <div className="p-5">
-                  <h3 className="font-sans font-bold text-white text-lg leading-snug mb-0.5">
+                  <h3 className="font-sans font-bold text-[#1C1914] text-lg leading-snug mb-0.5">
                     {trainer.name}
                   </h3>
-                  <p className="text-[#D4AF37] text-xs tracking-wide font-medium mb-3">
+                  <p className="text-[#96690A] text-xs tracking-wide font-medium mb-3">
                     {trainer.role}
                   </p>
 
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex items-center gap-1.5 text-[#555555] text-xs">
+                    <div className="flex items-center gap-1.5 text-[#6B6658] text-xs">
                       <Clock size={11} />
                       <span>{trainer.exp}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[#555555] text-xs">
+                    <div className="flex items-center gap-1.5 text-[#6B6658] text-xs">
                       <Dumbbell size={11} />
                       <span>{trainer.specialization}</span>
                     </div>
@@ -156,7 +156,7 @@ export function Trainers() {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
-                      className="flex-1 flex items-center justify-center gap-1.5 border border-[#2A2A2A] text-[#B8B8B8] hover:border-[#E1306C] hover:text-[#E1306C] text-xs py-3 rounded-xl transition-all duration-300 min-h-[44px]"
+                      className="flex-1 flex items-center justify-center gap-1.5 border border-[#A29D8F] text-[#6B6658] hover:border-[#E1306C] hover:text-[#E1306C] text-xs py-3 rounded-xl transition-all duration-300 min-h-[44px]"
                     >
                       <ExternalLink size={12} />
                       Follow
@@ -182,13 +182,13 @@ export function Trainers() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-[#444] text-sm mb-4 font-body">
+          <p className="text-[#8C8776] text-sm mb-4 font-body">
             All trainers available for 1:1 personal training sessions
           </p>
           <motion.a
             href="tel:7674014383"
             whileHover={{ scale: 1.04 }}
-            className="inline-flex items-center gap-2 border border-[rgba(212,175,55,0.3)] text-[#D4AF37] text-sm font-semibold px-8 py-3.5 rounded-full hover:bg-[rgba(212,175,55,0.06)] transition-all duration-300"
+            className="inline-flex items-center gap-2 border border-[rgba(150,105,10,0.4)] text-[#96690A] text-sm font-semibold px-8 py-3.5 rounded-full hover:bg-[rgba(150,105,10,0.1)] transition-all duration-300"
           >
             Book a Session — 76740 14383
           </motion.a>

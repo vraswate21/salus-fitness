@@ -22,7 +22,7 @@ const FEATURES = [
 
 export function WhySalus() {
   return (
-    <section id="why-salus" className="section-padding bg-[#0A0A0A] relative overflow-hidden">
+    <section id="why-salus" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       {/* Background accents */}
       <div
         className="absolute right-0 top-0 w-[600px] h-[600px] pointer-events-none"
@@ -50,14 +50,14 @@ export function WhySalus() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}
-            className="lg:max-w-xs font-body text-[#555] text-sm leading-[1.85]"
+            className="lg:max-w-xs font-body text-[#6B6658] text-sm leading-[1.85]"
           >
             We built Salus Fitness around one obsession — making it impossible for you to not see results. Every detail here has a purpose.
           </motion.p>
         </div>
 
         {/* Feature grid — no gap, divided by 1px lines */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[#111]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[#A29D8F]">
           {FEATURES.map((f, i) => (
             <motion.div
               key={f.num}
@@ -65,14 +65,14 @@ export function WhySalus() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: (i % 5) * 0.07, ease: [0.16,1,0.3,1] }}
-              className="group relative bg-[#0A0A0A] p-5 md:p-7 cursor-default overflow-hidden transition-colors duration-400 hover:bg-[#0E0E0E]"
+              className="group relative bg-[#B7B3A7] p-5 md:p-7 cursor-default overflow-hidden transition-colors duration-400 hover:bg-[#BFBBAE]"
             >
               {/* Hover: gold top border draw */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-[#96690A] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
               {/* Big number — ghost text */}
               <div
-                className="font-display font-black text-[#141414] group-hover:text-[rgba(212,175,55,0.07)] transition-colors duration-500 select-none leading-none mb-4"
+                className="font-display font-black text-[#A29D8F] group-hover:text-[rgba(150,105,10,0.18)] transition-colors duration-500 select-none leading-none mb-4"
                 style={{ fontSize: "clamp(32px, 7vw, 72px)" }}
               >
                 {f.num}
@@ -81,18 +81,18 @@ export function WhySalus() {
               {/* Icon */}
               <div
                 className="w-9 h-9 rounded-lg flex items-center justify-center mb-4 transition-transform duration-400 group-hover:scale-110"
-                style={{ background: "rgba(212,175,55,0.07)" }}
+                style={{ background: "rgba(150,105,10,0.1)" }}
               >
-                <f.icon size={16} style={{ color: "#D4AF37" }} />
+                <f.icon size={16} style={{ color: "#96690A" }} />
               </div>
 
               {/* Title */}
-              <h3 className="font-sans font-semibold text-[13px] text-white leading-snug mb-2.5 tracking-[-0.01em]">
+              <h3 className="font-sans font-semibold text-[13px] text-[#1C1914] leading-snug mb-2.5 tracking-[-0.01em]">
                 {f.title}
               </h3>
 
               {/* Description */}
-              <p className="font-body text-[#555] text-[12px] leading-[1.75]">
+              <p className="font-body text-[#6B6658] text-[12px] leading-[1.75]">
                 {f.desc}
               </p>
             </motion.div>

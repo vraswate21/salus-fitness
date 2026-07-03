@@ -29,19 +29,19 @@ function getBMIResult(
 
   if (bmi < 18.5) {
     category = "Underweight";
-    color = "#00E676";
+    color = "#0A7A4E";
     suggestedPlan = "Muscle Building — Annual Plan";
   } else if (bmi < 25) {
     category = "Normal Weight";
-    color = "#D4AF37";
+    color = "#96690A";
     suggestedPlan = "Maintenance + Strength — Quarterly";
   } else if (bmi < 30) {
     category = "Overweight";
-    color = "#FF9800";
+    color = "#B8630A";
     suggestedPlan = "Weight Loss Program — Half Yearly";
   } else {
     category = "Obese";
-    color = "#F44336";
+    color = "#B91C1C";
     suggestedPlan = "Fat Loss + Cardio — Annual Plan";
   }
 
@@ -78,10 +78,10 @@ export function BMICalculator() {
   };
 
   const inputClass =
-    "w-full bg-[#111] border border-[#222] text-white rounded-xl px-4 py-3.5 text-sm font-body focus:outline-none focus:border-[rgba(212,175,55,0.5)] focus:shadow-[0_0_0_2px_rgba(212,175,55,0.1)] transition-all duration-300 placeholder-[#333]";
+    "w-full bg-[#CAC6B9] border border-[#A29D8F] text-[#1C1914] rounded-xl px-4 py-3.5 text-sm font-body focus:outline-none focus:border-[rgba(150,105,10,0.5)] focus:shadow-[0_0_0_2px_rgba(150,105,10,0.12)] transition-all duration-300 placeholder-[#8C8776]";
 
   return (
-    <section id="bmi" className="section-padding bg-[#090909] relative overflow-hidden">
+    <section id="bmi" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       <div
         className="absolute inset-0 cinema-grid opacity-30"
         style={{ backgroundSize: "60px 60px" }}
@@ -103,15 +103,15 @@ export function BMICalculator() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="bg-[#111] border border-[#1E1E1E] rounded-2xl p-7"
+              className="bg-[#CAC6B9] border border-[#A29D8F] rounded-2xl p-7"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[rgba(212,175,55,0.1)] flex items-center justify-center">
-                  <Calculator size={18} className="text-[#D4AF37]" />
+                <div className="w-10 h-10 rounded-xl bg-[rgba(150,105,10,0.12)] flex items-center justify-center">
+                  <Calculator size={18} className="text-[#96690A]" />
                 </div>
                 <div>
-                  <h3 className="font-sans font-bold text-white text-base">BMI Calculator</h3>
-                  <p className="text-[#444] text-xs font-body">Fill in your details</p>
+                  <h3 className="font-sans font-bold text-[#1C1914] text-base">BMI Calculator</h3>
+                  <p className="text-[#8C8776] text-xs font-body">Fill in your details</p>
                 </div>
               </div>
 
@@ -124,7 +124,7 @@ export function BMICalculator() {
                     className={`flex-1 py-2.5 rounded-xl text-sm font-semibold capitalize transition-all duration-300 cursor-pointer border-none ${
                       gender === g
                         ? "bg-[#D4AF37] text-[#0A0A0A]"
-                        : "bg-[#1A1A1A] text-[#666] hover:text-white"
+                        : "bg-[#D3CFC2] text-[#6B6658] hover:text-[#1C1914]"
                     }`}
                   >
                     {g}
@@ -134,7 +134,7 @@ export function BMICalculator() {
 
               <div className="space-y-3 mb-5">
                 <div>
-                  <label className="text-[#555] text-xs font-sans mb-1.5 block uppercase tracking-wider">
+                  <label className="text-[#6B6658] text-xs font-sans mb-1.5 block uppercase tracking-wider">
                     Height (cm)
                   </label>
                   <input
@@ -149,7 +149,7 @@ export function BMICalculator() {
                 </div>
 
                 <div>
-                  <label className="text-[#555] text-xs font-sans mb-1.5 block uppercase tracking-wider">
+                  <label className="text-[#6B6658] text-xs font-sans mb-1.5 block uppercase tracking-wider">
                     Weight (kg)
                   </label>
                   <input
@@ -164,7 +164,7 @@ export function BMICalculator() {
                 </div>
 
                 <div>
-                  <label className="text-[#555] text-xs font-sans mb-1.5 block uppercase tracking-wider">
+                  <label className="text-[#6B6658] text-xs font-sans mb-1.5 block uppercase tracking-wider">
                     Age (years)
                   </label>
                   <input
@@ -198,7 +198,7 @@ export function BMICalculator() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="bg-[#111] border border-[#1E1E1E] rounded-2xl p-7 flex flex-col"
+              className="bg-[#CAC6B9] border border-[#A29D8F] rounded-2xl p-7 flex flex-col"
             >
               <AnimatePresence mode="wait">
                 {!result ? (
@@ -209,10 +209,10 @@ export function BMICalculator() {
                     exit={{ opacity: 0 }}
                     className="flex-1 flex flex-col items-center justify-center text-center"
                   >
-                    <div className="w-20 h-20 rounded-full border border-[#1E1E1E] flex items-center justify-center mb-4">
-                      <span className="text-4xl font-display font-black text-[#222]">?</span>
+                    <div className="w-20 h-20 rounded-full border border-[#A29D8F] flex items-center justify-center mb-4">
+                      <span className="text-4xl font-display font-black text-[#A29D8F]">?</span>
                     </div>
-                    <p className="text-[#333] text-sm font-body">
+                    <p className="text-[#8C8776] text-sm font-body">
                       Fill in your details to see your BMI result and personalized recommendation
                     </p>
                   </motion.div>
@@ -226,7 +226,7 @@ export function BMICalculator() {
                   >
                     {/* BMI score */}
                     <div className="text-center py-4">
-                      <div className="text-[#555] text-xs uppercase tracking-widest mb-2 font-sans">
+                      <div className="text-[#6B6658] text-xs uppercase tracking-widest mb-2 font-sans">
                         Your BMI
                       </div>
                       <motion.div
@@ -253,12 +253,12 @@ export function BMICalculator() {
                     {/* Stats grid */}
                     <div className="grid grid-cols-2 gap-3">
                       {[
-                        { label: "Daily Calories", value: `${result.calories} kcal`, color: "#D4AF37" },
-                        { label: "Body Fat Est.", value: `${result.bodyFat}%`, color: "#00E676" },
+                        { label: "Daily Calories", value: `${result.calories} kcal`, color: "#96690A" },
+                        { label: "Body Fat Est.", value: `${result.bodyFat}%`, color: "#0A7A4E" },
                       ].map((stat) => (
                         <div
                           key={stat.label}
-                          className="bg-[#0d0d0d] rounded-xl p-4 border border-[#1A1A1A] text-center"
+                          className="bg-[#C4C0B4] rounded-xl p-4 border border-[#A29D8F] text-center"
                         >
                           <div
                             className="font-display font-black text-xl mb-1"
@@ -266,17 +266,17 @@ export function BMICalculator() {
                           >
                             {stat.value}
                           </div>
-                          <div className="text-[#444] text-xs font-body">{stat.label}</div>
+                          <div className="text-[#8C8776] text-xs font-body">{stat.label}</div>
                         </div>
                       ))}
                     </div>
 
                     {/* Recommended plan */}
-                    <div className="bg-[rgba(212,175,55,0.06)] border border-[rgba(212,175,55,0.2)] rounded-xl p-4">
-                      <div className="text-[#D4AF37] text-[10px] uppercase tracking-widest mb-1.5 font-sans">
+                    <div className="bg-[rgba(150,105,10,0.08)] border border-[rgba(150,105,10,0.25)] rounded-xl p-4">
+                      <div className="text-[#96690A] text-[10px] uppercase tracking-widest mb-1.5 font-sans">
                         Recommended for you
                       </div>
-                      <div className="font-sans font-bold text-white text-sm">
+                      <div className="font-sans font-bold text-[#1C1914] text-sm">
                         {result.suggestedPlan}
                       </div>
                       <motion.button
@@ -284,7 +284,7 @@ export function BMICalculator() {
                         onClick={() => {
                           document.querySelector("#membership")?.scrollIntoView({ behavior: "smooth" });
                         }}
-                        className="mt-3 w-full border border-[rgba(212,175,55,0.3)] text-[#D4AF37] text-xs font-semibold py-2.5 rounded-lg hover:bg-[rgba(212,175,55,0.08)] transition-all duration-300 cursor-pointer bg-transparent"
+                        className="mt-3 w-full border border-[rgba(150,105,10,0.35)] text-[#96690A] text-xs font-semibold py-2.5 rounded-lg hover:bg-[rgba(150,105,10,0.1)] transition-all duration-300 cursor-pointer bg-transparent"
                       >
                         View Plans →
                       </motion.button>

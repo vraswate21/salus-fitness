@@ -12,7 +12,7 @@ const stories = [
     before: "94 kg",
     after: "72 kg",
     change: "−22 kg",
-    color: "#00E676",
+    color: "#0A7A4E",
     icon: TrendingDown,
     quote: "I never believed I could transform this much. Salus Fitness changed my life.",
     initials: "RM",
@@ -24,7 +24,7 @@ const stories = [
     before: "52 kg",
     after: "61 kg",
     change: "+9 kg",
-    color: "#D4AF37",
+    color: "#96690A",
     icon: TrendingUp,
     quote: "From skinny to strong. The trainers guided me every step of the way.",
     initials: "KS",
@@ -36,7 +36,7 @@ const stories = [
     before: "28% BF",
     after: "14% BF",
     change: "−14% BF",
-    color: "#E8CC5F",
+    color: "#8B6F0F",
     icon: TrendingDown,
     quote: "Lost fat and built muscle simultaneously. The diet plan was a game changer.",
     initials: "DR",
@@ -48,7 +48,7 @@ const stories = [
     before: "Bench: 20 kg",
     after: "Bench: 60 kg",
     change: "+40 kg",
-    color: "#FF6B35",
+    color: "#C1440E",
     icon: TrendingUp,
     quote: "From absolute beginner to lifting 3× my starting weight. Unbelievable.",
     initials: "AP",
@@ -57,7 +57,7 @@ const stories = [
 
 export function Transformations() {
   return (
-    <section id="transformations" className="section-padding bg-[#0A0A0A] relative overflow-hidden">
+    <section id="transformations" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       <div
         className="absolute inset-0 cinema-grid opacity-30"
         style={{ backgroundSize: "80px 80px" }}
@@ -86,7 +86,7 @@ export function Transformations() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.12 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative bg-[#111] border border-[#1E1E1E] rounded-2xl overflow-hidden hover:border-[rgba(212,175,55,0.2)] transition-all duration-500 cursor-default"
+              className="group relative bg-[#CAC6B9] border border-[#A29D8F] rounded-2xl overflow-hidden hover:border-[rgba(150,105,10,0.3)] transition-all duration-500 cursor-default"
             >
               {/* Top color bar */}
               <div className="h-1 w-full" style={{ background: story.color }} />
@@ -106,7 +106,7 @@ export function Transformations() {
                   {story.initials}
                 </div>
 
-                <h3 className="font-sans font-bold text-white text-base">{story.name}</h3>
+                <h3 className="font-sans font-bold text-[#1C1914] text-base">{story.name}</h3>
                 <div
                   className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mt-2"
                   style={{ background: `${story.color}15`, color: story.color }}
@@ -120,8 +120,8 @@ export function Transformations() {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-center">
-                    <div className="text-[#555] text-[10px] uppercase tracking-wider mb-1 font-sans">Before</div>
-                    <div className="font-display font-bold text-white text-base">{story.before}</div>
+                    <div className="text-[#6B6658] text-[10px] uppercase tracking-wider mb-1 font-sans">Before</div>
+                    <div className="font-display font-bold text-[#1C1914] text-base">{story.before}</div>
                   </div>
                   <div
                     className="flex flex-col items-center"
@@ -131,17 +131,17 @@ export function Transformations() {
                     <span className="font-display font-black text-sm mt-0.5">{story.change}</span>
                   </div>
                   <div className="text-center">
-                    <div className="text-[#555] text-[10px] uppercase tracking-wider mb-1 font-sans">After</div>
-                    <div className="font-display font-bold text-white text-base">{story.after}</div>
+                    <div className="text-[#6B6658] text-[10px] uppercase tracking-wider mb-1 font-sans">After</div>
+                    <div className="font-display font-bold text-[#1C1914] text-base">{story.after}</div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 text-[#444] text-xs mb-4 font-body">
+                <div className="flex items-center gap-1.5 text-[#8C8776] text-xs mb-4 font-body">
                   <Clock size={11} />
                   <span>{story.duration} at Salus Fitness</span>
                 </div>
 
-                <p className="text-[#555] text-xs leading-relaxed italic font-body border-l-2 pl-3" style={{ borderColor: `${story.color}40` }}>
+                <p className="text-[#6B6658] text-xs leading-relaxed italic font-body border-l-2 pl-3" style={{ borderColor: `${story.color}40` }}>
                   "{story.quote}"
                 </p>
               </div>
@@ -155,7 +155,7 @@ export function Transformations() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-[#333] text-sm mb-4 font-body">
+          <p className="text-[#8C8776] text-sm mb-4 font-body">
             Results vary per individual. Consistent training + diet = guaranteed progress.
           </p>
           <motion.button

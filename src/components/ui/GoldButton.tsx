@@ -35,15 +35,15 @@ export function GoldButton({
     filled:
       "bg-[#D4AF37] text-[#0A0A0A] font-bold hover:bg-[#E8CC5F] shadow-[0_0_30px_rgba(212,175,55,0.2)]",
     outline:
-      "border border-[#D4AF37] text-[#D4AF37] hover:bg-[rgba(212,175,55,0.08)] backdrop-blur-sm",
-    ghost: "text-white hover:text-[#D4AF37]",
+      "border border-[#96690A] text-[#96690A] hover:bg-[rgba(150,105,10,0.08)] backdrop-blur-sm",
+    ghost: "text-[#1C1914] hover:text-[#96690A]",
   }[variant];
 
   const classes = cn(
     "relative inline-flex items-center justify-center gap-2 rounded-full",
     "font-semibold tracking-wider uppercase text-xs",
     "transition-all duration-300 ease-out cursor-pointer",
-    "focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-[#0A0A0A]",
+    "focus:outline-none focus:ring-2 focus:ring-[#96690A] focus:ring-offset-2 focus:ring-offset-[#B7B3A7]",
     sizeClasses,
     variantClasses,
     fullWidth && "w-full",
@@ -63,8 +63,8 @@ export function GoldButton({
           whileHover={{
             background:
               variant === "filled"
-                ? "rgba(255,255,255,0.1)"
-                : "rgba(212,175,55,0.05)",
+                ? "rgba(255,255,255,0.15)"
+                : "rgba(150,105,10,0.05)",
           }}
           transition={{ duration: 0.3 }}
         />

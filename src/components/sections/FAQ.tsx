@@ -48,7 +48,7 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="section-padding bg-[#0A0A0A] relative">
+    <section id="faq" className="section-padding bg-[#B7B3A7] relative">
       <div className="container-wide">
         <SectionTitle
           label="FAQ"
@@ -65,7 +65,7 @@ export function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16,1,0.3,1] }}
-              className="border-b border-[#111] first:border-t"
+              className="border-b border-[#A29D8F] first:border-t"
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
@@ -73,7 +73,7 @@ export function FAQ() {
               >
                 <span
                   className="font-sans font-medium text-[14px] leading-snug pr-6 transition-colors duration-300"
-                  style={{ color: open === i ? "#D4AF37" : "#CCCCCC" }}
+                  style={{ color: open === i ? "#96690A" : "#2E2A22" }}
                 >
                   {faq.q}
                 </span>
@@ -82,11 +82,11 @@ export function FAQ() {
                   transition={{ duration: 0.25, ease: [0.16,1,0.3,1] }}
                   className="flex-shrink-0 w-5 h-5 rounded-full border flex items-center justify-center transition-colors duration-300"
                   style={{
-                    borderColor: open === i ? "rgba(212,175,55,0.4)" : "rgba(255,255,255,0.1)",
-                    background:  open === i ? "rgba(212,175,55,0.08)" : "transparent",
+                    borderColor: open === i ? "rgba(150,105,10,0.4)" : "rgba(0,0,0,0.12)",
+                    background:  open === i ? "rgba(150,105,10,0.1)" : "transparent",
                   }}
                 >
-                  <Plus size={11} style={{ color: open === i ? "#D4AF37" : "#555" }} />
+                  <Plus size={11} style={{ color: open === i ? "#96690A" : "#6B6658" }} />
                 </motion.div>
               </button>
 
@@ -100,7 +100,7 @@ export function FAQ() {
                     style={{ overflow: "hidden" }}
                   >
                     <div className="pb-5 md:pb-6 pr-8 md:pr-12">
-                      <p className="font-body text-[#666] text-sm leading-[1.75]">{faq.a}</p>
+                      <p className="font-body text-[#6B6658] text-sm leading-[1.75]">{faq.a}</p>
                     </div>
                   </motion.div>
                 )}

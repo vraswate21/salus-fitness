@@ -136,22 +136,22 @@ export function AIChat() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-[160px] right-4 md:bottom-28 md:right-8 z-[60] w-[min(calc(100vw-32px),360px)] md:w-96 bg-[#0F0F0F] border border-[rgba(212,175,55,0.2)] rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.7),0_0_30px_rgba(212,175,55,0.08)]"
+            className="fixed bottom-[160px] right-4 md:bottom-28 md:right-8 z-[60] w-[min(calc(100vw-32px),360px)] md:w-96 bg-[#CDC9BC] border border-[rgba(150,105,10,0.25)] rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.3),0_0_30px_rgba(150,105,10,0.1)]"
           >
             {/* Header */}
-            <div className="bg-[#111] border-b border-[rgba(212,175,55,0.1)] px-4 py-3 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[rgba(212,175,55,0.15)] flex items-center justify-center">
-                <Bot size={15} className="text-[#D4AF37]" />
+            <div className="bg-[#CAC6B9] border-b border-[rgba(150,105,10,0.15)] px-4 py-3 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-[rgba(150,105,10,0.18)] flex items-center justify-center">
+                <Bot size={15} className="text-[#96690A]" />
               </div>
               <div>
-                <div className="font-sans font-semibold text-white text-sm">Salus AI Assistant</div>
+                <div className="font-sans font-semibold text-[#1C1914] text-sm">Salus AI Assistant</div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00E676]" />
-                  <span className="text-[#555] text-xs font-body">Online · Replies instantly</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0A7A4E]" />
+                  <span className="text-[#6B6658] text-xs font-body">Online · Replies instantly</span>
                 </div>
               </div>
               <div className="ml-auto">
-                <Zap size={12} className="text-[#D4AF37]" />
+                <Zap size={12} className="text-[#96690A]" />
               </div>
             </div>
 
@@ -166,8 +166,8 @@ export function AIChat() {
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   {msg.role === "bot" && (
-                    <div className="w-6 h-6 rounded-full bg-[rgba(212,175,55,0.1)] flex items-center justify-center mr-2 flex-shrink-0 mt-1">
-                      <Bot size={12} className="text-[#D4AF37]" />
+                    <div className="w-6 h-6 rounded-full bg-[rgba(150,105,10,0.12)] flex items-center justify-center mr-2 flex-shrink-0 mt-1">
+                      <Bot size={12} className="text-[#96690A]" />
                     </div>
                   )}
                   <div
@@ -175,7 +175,7 @@ export function AIChat() {
                     style={
                       msg.role === "user"
                         ? { background: "#D4AF37", color: "#0A0A0A", borderRadius: "16px 4px 16px 16px" }
-                        : { background: "#1A1A1A", color: "#CCCCCC", borderRadius: "4px 16px 16px 16px" }
+                        : { background: "#D3CFC2", color: "#2E2A22", borderRadius: "4px 16px 16px 16px" }
                     }
                   >
                     {msg.text}
@@ -185,14 +185,14 @@ export function AIChat() {
 
               {typing && (
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-full bg-[rgba(212,175,55,0.1)] flex items-center justify-center flex-shrink-0">
-                    <Bot size={12} className="text-[#D4AF37]" />
+                  <div className="w-6 h-6 rounded-full bg-[rgba(150,105,10,0.12)] flex items-center justify-center flex-shrink-0">
+                    <Bot size={12} className="text-[#96690A]" />
                   </div>
-                  <div className="bg-[#1A1A1A] px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5">
+                  <div className="bg-[#D3CFC2] px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5">
                     {[0, 1, 2].map((i) => (
                       <motion.span
                         key={i}
-                        className="w-1.5 h-1.5 rounded-full bg-[#555]"
+                        className="w-1.5 h-1.5 rounded-full bg-[#6B6658]"
                         animate={{ y: [0, -4, 0] }}
                         transition={{ duration: 0.6, delay: i * 0.15, repeat: Infinity }}
                       />
@@ -210,7 +210,7 @@ export function AIChat() {
                 <button
                   key={qr}
                   onClick={() => sendMessage(qr)}
-                  className="flex-shrink-0 text-[10px] font-semibold border border-[rgba(212,175,55,0.2)] text-[#D4AF37] px-3 py-1.5 rounded-full hover:bg-[rgba(212,175,55,0.1)] transition-all duration-200 cursor-pointer bg-transparent whitespace-nowrap"
+                  className="flex-shrink-0 text-[10px] font-semibold border border-[rgba(150,105,10,0.3)] text-[#96690A] px-3 py-1.5 rounded-full hover:bg-[rgba(150,105,10,0.1)] transition-all duration-200 cursor-pointer bg-transparent whitespace-nowrap"
                 >
                   {qr}
                 </button>
@@ -218,14 +218,14 @@ export function AIChat() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-[rgba(212,175,55,0.1)] p-3 flex gap-2">
+            <div className="border-t border-[rgba(150,105,10,0.15)] p-3 flex gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && sendMessage(input)}
                 placeholder="Ask anything about Salus Fitness..."
-                className="flex-1 bg-[#1A1A1A] border border-[#222] text-white text-xs rounded-xl px-3 py-2.5 focus:outline-none focus:border-[rgba(212,175,55,0.4)] placeholder-[#333] font-body transition-all duration-300"
+                className="flex-1 bg-[#D3CFC2] border border-[#A29D8F] text-[#1C1914] text-xs rounded-xl px-3 py-2.5 focus:outline-none focus:border-[rgba(150,105,10,0.5)] placeholder-[#8C8776] font-body transition-all duration-300"
               />
               <motion.button
                 whileHover={{ scale: 1.1 }}

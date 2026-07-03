@@ -108,7 +108,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0A0A0A",
+  themeColor: "#B7B3A7",
 };
 
 export default function RootLayout({
@@ -127,7 +127,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://wa.me" />
       </head>
 
-      <body className="bg-[#0A0A0A] text-white overflow-x-hidden font-body selection:bg-[rgba(212,175,55,0.2)]">
+      <body className="bg-[#B7B3A7] text-[#1C1914] overflow-x-hidden font-body selection:bg-[rgba(150,105,10,0.2)]">
         {children}
 
         {/* Google Tag Manager */}

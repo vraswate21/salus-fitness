@@ -78,7 +78,7 @@ export function Membership() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section id="membership" className="section-padding bg-[#070707] relative overflow-hidden">
+    <section id="membership" className="section-padding bg-[#B7B3A7] relative overflow-hidden">
       {/* Grid background */}
       <div className="absolute inset-0 cinema-grid opacity-30" />
       <div
@@ -105,8 +105,8 @@ export function Membership() {
         >
           {["Free first session", "No lock-in contract", "Student discounts", "Couple discounts"].map((t) => (
             <div key={t} className="flex items-center gap-2">
-              <Check size={12} className="text-[#D4AF37]" />
-              <span className="font-body text-[#555] text-xs tracking-wide">{t}</span>
+              <Check size={12} className="text-[#96690A]" />
+              <span className="font-body text-[#6B6658] text-xs tracking-wide">{t}</span>
             </div>
           ))}
         </motion.div>
@@ -139,8 +139,8 @@ export function Membership() {
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   className={`relative z-10 flex flex-col h-full rounded-[20px] p-7 border transition-all duration-400 ${
                     plan.highlight
-                      ? "bg-[#0F0F0F] border-[rgba(212,175,55,0.25)] shadow-[0_0_70px_rgba(212,175,55,0.1)]"
-                      : "bg-[#0D0D0D] border-[#1A1A1A] hover:border-[rgba(212,175,55,0.18)]"
+                      ? "bg-[#CDC9BC] border-[rgba(150,105,10,0.35)] shadow-[0_0_70px_rgba(150,105,10,0.12)]"
+                      : "bg-[#C4C0B4] border-[#A29D8F] hover:border-[rgba(150,105,10,0.25)]"
                   }`}
                 >
                   {/* Badge */}
@@ -150,8 +150,8 @@ export function Membership() {
                         className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full"
                         style={
                           plan.highlight
-                            ? { background: "rgba(212,175,55,0.12)", color: "#D4AF37", border: "1px solid rgba(212,175,55,0.25)" }
-                            : { background: "rgba(255,255,255,0.04)", color: "#888", border: "1px solid rgba(255,255,255,0.07)" }
+                            ? { background: "rgba(150,105,10,0.14)", color: "#96690A", border: "1px solid rgba(150,105,10,0.3)" }
+                            : { background: "rgba(0,0,0,0.05)", color: "#4A453B", border: "1px solid rgba(0,0,0,0.08)" }
                         }
                       >
                         {plan.highlight && <Star size={9} fill="currentColor" />}
@@ -165,26 +165,26 @@ export function Membership() {
 
                   {/* Price */}
                   <div className="flex items-end gap-1 mb-1">
-                    <span className="text-[#888] text-base font-sans mt-1">₹</span>
+                    <span className="text-[#4A453B] text-base font-sans mt-1">₹</span>
                     <span
                       className="font-display font-black leading-none tracking-[-0.03em]"
                       style={{
                         fontSize: "clamp(36px, 5vw, 48px)",
-                        color: plan.highlight ? "#D4AF37" : "#FFFFFF",
+                        color: plan.highlight ? "#96690A" : "#1C1914",
                       }}
                     >
                       {plan.price.toLocaleString("en-IN")}
                     </span>
                   </div>
-                  <div className="font-body text-[#444] text-xs mb-1">/{plan.name.toLowerCase()}</div>
-                  <div className="font-body text-[#333] text-[11px] mb-7">
+                  <div className="font-body text-[#8C8776] text-xs mb-1">/{plan.name.toLowerCase()}</div>
+                  <div className="font-body text-[#8C8776] text-[11px] mb-7">
                     ≈ ₹{plan.monthlyEq.toLocaleString("en-IN")} / month
                   </div>
 
                   {/* Divider */}
                   <div
                     className="w-full h-px mb-6 transition-colors duration-300"
-                    style={{ background: plan.highlight ? "rgba(212,175,55,0.12)" : "#1A1A1A" }}
+                    style={{ background: plan.highlight ? "rgba(150,105,10,0.15)" : "#A29D8F" }}
                   />
 
                   {/* Features */}
@@ -193,11 +193,11 @@ export function Membership() {
                       <div key={f} className="flex items-start gap-2.5">
                         <div
                           className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                          style={{ background: "rgba(212,175,55,0.1)" }}
+                          style={{ background: "rgba(150,105,10,0.12)" }}
                         >
-                          <Check size={9} style={{ color: "#D4AF37" }} />
+                          <Check size={9} style={{ color: "#96690A" }} />
                         </div>
-                        <span className="font-body text-[#999] text-[13px] leading-snug">{f}</span>
+                        <span className="font-body text-[#4A453B] text-[13px] leading-snug">{f}</span>
                       </div>
                     ))}
                   </div>
@@ -213,7 +213,7 @@ export function Membership() {
                     style={
                       plan.highlight
                         ? { background: "#D4AF37", color: "#0A0A0A", boxShadow: "0 0 35px rgba(212,175,55,0.25)" }
-                        : { background: "transparent", color: "#666", border: "1px solid #1E1E1E" }
+                        : { background: "transparent", color: "#6B6658", border: "1px solid #A29D8F" }
                     }
                   >
                     Get Started
@@ -233,13 +233,13 @@ export function Membership() {
           transition={{ delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
         >
-          <p className="font-body text-[#333] text-xs text-center">
+          <p className="font-body text-[#8C8776] text-xs text-center">
             All plans include AC gym · Changing rooms · Basic nutrition guidance
           </p>
-          <span className="hidden sm:block text-[#222] text-xs">·</span>
+          <span className="hidden sm:block text-[#A29D8F] text-xs">·</span>
           <a
             href="tel:7674014383"
-            className="flex items-center gap-1.5 font-body text-[#D4AF37] text-xs hover:underline"
+            className="flex items-center gap-1.5 font-body text-[#96690A] text-xs hover:underline"
           >
             <Phone size={11} />
             Call 76740 14383 for student & couple deals

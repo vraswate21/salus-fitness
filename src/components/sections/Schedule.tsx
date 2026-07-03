@@ -22,44 +22,44 @@ type ScheduleData = {
 
 const schedule: ScheduleData = {
   Mon: [
-    { time: "6:00 AM", name: "Morning HIIT", trainer: "Rahul", duration: "45 min", spots: 8, color: "#FF6B35" },
-    { time: "8:00 AM", name: "Strength Training", trainer: "Vikram", duration: "60 min", spots: 12, color: "#D4AF37" },
-    { time: "6:00 PM", name: "CrossFit", trainer: "Rahul", duration: "50 min", spots: 10, color: "#00E676" },
-    { time: "8:00 PM", name: "Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#64B5F6" },
+    { time: "6:00 AM", name: "Morning HIIT", trainer: "Rahul", duration: "45 min", spots: 8, color: "#C1440E" },
+    { time: "8:00 AM", name: "Strength Training", trainer: "Vikram", duration: "60 min", spots: 12, color: "#96690A" },
+    { time: "6:00 PM", name: "CrossFit", trainer: "Rahul", duration: "50 min", spots: 10, color: "#0A7A4E" },
+    { time: "8:00 PM", name: "Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#1D4ED8" },
   ],
   Tue: [
-    { time: "6:00 AM", name: "Cardio Blast", trainer: "Vikram", duration: "45 min", spots: 10, color: "#FF4B8B" },
-    { time: "9:00 AM", name: "Toning & Flex", trainer: "Priya", duration: "55 min", spots: 12, color: "#FF4B8B" },
-    { time: "5:00 PM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#E8CC5F" },
-    { time: "7:30 PM", name: "Strength Training", trainer: "Rahul", duration: "60 min", spots: 12, color: "#D4AF37" },
+    { time: "6:00 AM", name: "Cardio Blast", trainer: "Vikram", duration: "45 min", spots: 10, color: "#C2185B" },
+    { time: "9:00 AM", name: "Toning & Flex", trainer: "Priya", duration: "55 min", spots: 12, color: "#C2185B" },
+    { time: "5:00 PM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#B8860B" },
+    { time: "7:30 PM", name: "Strength Training", trainer: "Rahul", duration: "60 min", spots: 12, color: "#96690A" },
   ],
   Wed: [
-    { time: "6:00 AM", name: "HIIT", trainer: "Vikram", duration: "45 min", spots: 8, color: "#FF6B35" },
-    { time: "8:00 AM", name: "CrossFit", trainer: "Rahul", duration: "50 min", spots: 10, color: "#00E676" },
-    { time: "6:00 PM", name: "Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#64B5F6" },
-    { time: "8:00 PM", name: "Cardio", trainer: "Vikram", duration: "40 min", spots: 12, color: "#FF4B8B" },
+    { time: "6:00 AM", name: "HIIT", trainer: "Vikram", duration: "45 min", spots: 8, color: "#C1440E" },
+    { time: "8:00 AM", name: "CrossFit", trainer: "Rahul", duration: "50 min", spots: 10, color: "#0A7A4E" },
+    { time: "6:00 PM", name: "Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#1D4ED8" },
+    { time: "8:00 PM", name: "Cardio", trainer: "Vikram", duration: "40 min", spots: 12, color: "#C2185B" },
   ],
   Thu: [
-    { time: "6:00 AM", name: "Morning Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#64B5F6" },
-    { time: "9:00 AM", name: "Core & Flex", trainer: "Anjali", duration: "55 min", spots: 12, color: "#FF4B8B" },
-    { time: "6:00 PM", name: "HIIT", trainer: "Rahul", duration: "45 min", spots: 8, color: "#FF6B35" },
-    { time: "8:00 PM", name: "Strength", trainer: "Vikram", duration: "60 min", spots: 12, color: "#D4AF37" },
+    { time: "6:00 AM", name: "Morning Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#1D4ED8" },
+    { time: "9:00 AM", name: "Core & Flex", trainer: "Anjali", duration: "55 min", spots: 12, color: "#C2185B" },
+    { time: "6:00 PM", name: "HIIT", trainer: "Rahul", duration: "45 min", spots: 8, color: "#C1440E" },
+    { time: "8:00 PM", name: "Strength", trainer: "Vikram", duration: "60 min", spots: 12, color: "#96690A" },
   ],
   Fri: [
-    { time: "6:00 AM", name: "CrossFit", trainer: "Rahul", duration: "50 min", spots: 10, color: "#00E676" },
-    { time: "8:00 AM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#E8CC5F" },
-    { time: "5:30 PM", name: "HIIT", trainer: "Vikram", duration: "45 min", spots: 8, color: "#FF6B35" },
-    { time: "7:30 PM", name: "Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#64B5F6" },
+    { time: "6:00 AM", name: "CrossFit", trainer: "Rahul", duration: "50 min", spots: 10, color: "#0A7A4E" },
+    { time: "8:00 AM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#B8860B" },
+    { time: "5:30 PM", name: "HIIT", trainer: "Vikram", duration: "45 min", spots: 8, color: "#C1440E" },
+    { time: "7:30 PM", name: "Yoga", trainer: "Priya", duration: "60 min", spots: 15, color: "#1D4ED8" },
   ],
   Sat: [
-    { time: "7:00 AM", name: "Outdoor Bootcamp", trainer: "Rahul", duration: "75 min", spots: 20, color: "#D4AF37" },
-    { time: "10:00 AM", name: "Pilates & Tone", trainer: "Priya", duration: "55 min", spots: 12, color: "#FF4B8B" },
-    { time: "5:00 PM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#E8CC5F" },
+    { time: "7:00 AM", name: "Outdoor Bootcamp", trainer: "Rahul", duration: "75 min", spots: 20, color: "#96690A" },
+    { time: "10:00 AM", name: "Pilates & Tone", trainer: "Priya", duration: "55 min", spots: 12, color: "#C2185B" },
+    { time: "5:00 PM", name: "Zumba", trainer: "Anjali", duration: "60 min", spots: 20, color: "#B8860B" },
   ],
   Sun: [
-    { time: "8:00 AM", name: "Yoga & Meditation", trainer: "Priya", duration: "75 min", spots: 20, color: "#64B5F6" },
-    { time: "10:00 AM", name: "Open Gym", trainer: "All Trainers", duration: "Open", spots: 30, color: "#D4AF37" },
-    { time: "5:00 PM", name: "Stretch & Recovery", trainer: "Anjali", duration: "45 min", spots: 15, color: "#00E676" },
+    { time: "8:00 AM", name: "Yoga & Meditation", trainer: "Priya", duration: "75 min", spots: 20, color: "#1D4ED8" },
+    { time: "10:00 AM", name: "Open Gym", trainer: "All Trainers", duration: "Open", spots: 30, color: "#96690A" },
+    { time: "5:00 PM", name: "Stretch & Recovery", trainer: "Anjali", duration: "45 min", spots: 15, color: "#0A7A4E" },
   ],
 };
 
@@ -70,7 +70,7 @@ export function Schedule() {
   );
 
   return (
-    <section id="schedule" className="section-padding bg-[#0A0A0A] relative">
+    <section id="schedule" className="section-padding bg-[#B7B3A7] relative">
       <div className="container-wide relative">
         <SectionTitle
           label="Schedule"
@@ -91,7 +91,7 @@ export function Schedule() {
               style={
                 activeDay === day
                   ? { background: "#D4AF37", color: "#0A0A0A" }
-                  : { background: "#111", color: "#666", border: "1px solid #1E1E1E" }
+                  : { background: "#CAC6B9", color: "#6B6658", border: "1px solid #A29D8F" }
               }
             >
               {day}
@@ -116,7 +116,7 @@ export function Schedule() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="bg-[#111] border border-[#1E1E1E] rounded-2xl p-5 hover:border-[rgba(212,175,55,0.2)] transition-all duration-400 cursor-default relative overflow-hidden group"
+                className="bg-[#CAC6B9] border border-[#A29D8F] rounded-2xl p-5 hover:border-[rgba(150,105,10,0.3)] transition-all duration-400 cursor-default relative overflow-hidden group"
               >
                 <div
                   className="absolute top-0 left-0 right-0 h-0.5"
@@ -130,12 +130,12 @@ export function Schedule() {
                   </span>
                 </div>
 
-                <h4 className="font-sans font-bold text-white text-base mb-1 leading-snug">
+                <h4 className="font-sans font-bold text-[#1C1914] text-base mb-1 leading-snug">
                   {cls.name}
                 </h4>
-                <p className="text-[#555] text-xs mb-3">with {cls.trainer}</p>
+                <p className="text-[#6B6658] text-xs mb-3">with {cls.trainer}</p>
 
-                <div className="flex items-center justify-between text-xs text-[#444]">
+                <div className="flex items-center justify-between text-xs text-[#8C8776]">
                   <span>{cls.duration}</span>
                   <span className="flex items-center gap-1">
                     <Users size={10} />

@@ -37,7 +37,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "py-3 bg-[rgba(8,8,8,0.94)] backdrop-blur-2xl border-b border-[rgba(212,175,55,0.08)] shadow-[0_1px_40px_rgba(0,0,0,0.6)]"
+            ? "py-3 bg-[rgba(183,179,167,0.94)] backdrop-blur-2xl border-b border-[rgba(150,105,10,0.12)] shadow-[0_1px_40px_rgba(0,0,0,0.15)]"
             : "py-5 bg-transparent"
         )}
       >
@@ -51,12 +51,12 @@ export function Navbar() {
             className="flex flex-col leading-none select-none group cursor-pointer"
           >
             <span
-              className="font-display font-black tracking-[0.07em] text-white transition-colors duration-300 group-hover:text-[#F0D060]"
+              className="font-display font-black tracking-[0.07em] text-[#1C1914] transition-colors duration-300 group-hover:text-[#B8860B]"
               style={{ fontSize: "clamp(18px, 2vw, 22px)" }}
             >
               SALUS
             </span>
-            <span className="font-sans font-semibold tracking-[0.4em] text-[#D4AF37] leading-none" style={{ fontSize: "9px" }}>
+            <span className="font-sans font-semibold tracking-[0.4em] text-[#96690A] leading-none" style={{ fontSize: "9px" }}>
               FITNESS
             </span>
           </motion.a>
@@ -70,7 +70,7 @@ export function Navbar() {
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 * i + 0.3, duration: 0.5, ease: [0.16,1,0.3,1] }}
-                className="hover-line font-sans font-medium text-[13px] tracking-[0.06em] text-[#999] hover:text-white transition-colors duration-300 cursor-pointer bg-transparent border-none"
+                className="hover-line font-sans font-medium text-[13px] tracking-[0.06em] text-[#4A453B] hover:text-[#1C1914] transition-colors duration-300 cursor-pointer bg-transparent border-none"
               >
                 {link.label}
               </motion.button>
@@ -86,7 +86,7 @@ export function Navbar() {
           >
             <a
               href="tel:7674014383"
-              className="flex items-center gap-1.5 text-[#666] hover:text-[#D4AF37] text-[12px] font-sans transition-colors duration-300"
+              className="flex items-center gap-1.5 text-[#6B6658] hover:text-[#96690A] text-[12px] font-sans transition-colors duration-300"
             >
               <Phone size={12} />
               <span>76740 14383</span>
@@ -107,7 +107,7 @@ export function Navbar() {
           <motion.button
             onClick={() => setMobileOpen(!mobileOpen)}
             whileTap={{ scale: 0.88 }}
-            className="lg:hidden relative w-9 h-9 flex items-center justify-center text-white cursor-pointer bg-transparent border-none"
+            className="lg:hidden relative w-9 h-9 flex items-center justify-center text-[#1C1914] cursor-pointer bg-transparent border-none"
           >
             <AnimatePresence mode="wait" initial={false}>
               {mobileOpen
@@ -132,9 +132,9 @@ export function Navbar() {
             animate={{ opacity: 1, clipPath: "circle(150% at calc(100% - 48px) 28px)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at calc(100% - 48px) 28px)" }}
             transition={{ duration: 0.5, ease: [0.16,1,0.3,1] }}
-            className="fixed inset-0 z-40 bg-[#060606] flex flex-col"
+            className="fixed inset-0 z-40 bg-[#B7B3A7] flex flex-col"
           >
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.4)] to-transparent" />
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(150,105,10,0.4)] to-transparent" />
 
             <div className="flex-1 flex flex-col justify-center px-8 pt-20 pb-10">
               <nav className="flex flex-col gap-1 mb-12">
@@ -145,12 +145,12 @@ export function Navbar() {
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.05 * i + 0.1, ease: [0.16,1,0.3,1] }}
-                    className="text-left py-4 border-b border-[#111] cursor-pointer bg-transparent border-x-0 border-t-0 group flex items-center justify-between"
+                    className="text-left py-4 border-b border-[#A29D8F] cursor-pointer bg-transparent border-x-0 border-t-0 group flex items-center justify-between"
                   >
-                    <span className="font-display font-black text-[32px] text-white group-hover:text-[#D4AF37] transition-colors duration-300 tracking-[-0.02em]">
+                    <span className="font-display font-black text-[32px] text-[#1C1914] group-hover:text-[#96690A] transition-colors duration-300 tracking-[-0.02em]">
                       {link.label}
                     </span>
-                    <ArrowRight size={18} className="text-[#333] group-hover:text-[#D4AF37] group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight size={18} className="text-[#8C8776] group-hover:text-[#96690A] group-hover:translate-x-1 transition-all duration-300" />
                   </motion.button>
                 ))}
               </nav>
@@ -161,8 +161,8 @@ export function Navbar() {
                 transition={{ delay: 0.45 }}
                 className="space-y-3"
               >
-                <a href="tel:7674014383" className="flex items-center gap-3 text-[#666] py-2">
-                  <Phone size={15} className="text-[#D4AF37]" />
+                <a href="tel:7674014383" className="flex items-center gap-3 text-[#6B6658] py-2">
+                  <Phone size={15} className="text-[#96690A]" />
                   <span className="font-sans text-base">76740 14383</span>
                 </a>
                 <button
@@ -178,10 +178,10 @@ export function Navbar() {
       </AnimatePresence>
 
       {/* ── Mobile sticky bottom bar ── */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 flex gap-3 px-4 py-3 bg-[rgba(6,6,6,0.96)] backdrop-blur-xl border-t border-[rgba(212,175,55,0.1)]">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 flex gap-3 px-4 py-3 bg-[rgba(183,179,167,0.96)] backdrop-blur-xl border-t border-[rgba(150,105,10,0.15)]">
         <a
           href="tel:7674014383"
-          className="flex-1 flex items-center justify-center gap-2 text-[#D4AF37] text-[12px] font-sans font-semibold tracking-wider py-3.5 rounded-full border border-[rgba(212,175,55,0.25)]"
+          className="flex-1 flex items-center justify-center gap-2 text-[#96690A] text-[12px] font-sans font-semibold tracking-wider py-3.5 rounded-full border border-[rgba(150,105,10,0.3)]"
         >
           <Phone size={13} /> Call Now
         </a>
