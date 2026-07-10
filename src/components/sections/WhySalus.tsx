@@ -2,22 +2,21 @@
 
 import { motion } from "framer-motion";
 import {
-  Dumbbell, Shield, Salad, TrendingUp, Zap, Flame,
+  Shield, Salad, TrendingUp, Zap, Flame,
   Wind, Users2, Timer, Activity
 } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const FEATURES = [
-  { num: "01", icon: Dumbbell,  title: "Machines that perform",   desc: "World-class imported equipment — because results start with the right tools." },
-  { num: "02", icon: Shield,    title: "Coaches who care",         desc: "Every certified trainer is invested in your transformation, not just your attendance." },
-  { num: "03", icon: Salad,     title: "Fuel your body right",     desc: "Personalized nutrition plans built around your metabolism, not generic templates." },
-  { num: "04", icon: TrendingUp,title: "Results you can see",      desc: "Proven body transformation programs with measurable milestones at every step." },
-  { num: "05", icon: Zap,       title: "Intensity that works",     desc: "CrossFit and HIIT sessions engineered to burn fat and build real endurance fast." },
-  { num: "06", icon: Flame,     title: "Strength without limits",  desc: "Full free-weights zone — barbells, dumbbells to 60kg, cables, power racks." },
-  { num: "07", icon: Wind,      title: "Comfort while you grind",  desc: "Fully air-conditioned facility so nothing stands between you and your best session." },
-  { num: "08", icon: Users2,    title: "A welcoming community",    desc: "Everyone belongs here. Supportive coaches, like-minded members, and a vibe that keeps you coming back." },
-  { num: "09", icon: Activity,  title: "Move better every day",    desc: "Functional training that improves posture, mobility, and real-world performance." },
-  { num: "10", icon: Timer,     title: "On your schedule",         desc: "Open 6 AM – 10 PM, Mon–Sat. Your progress doesn't wait for convenience." },
+  { num: "01", icon: Shield,    title: "Coaches who care",         desc: "Every certified trainer is invested in your transformation, not just your attendance." },
+  { num: "02", icon: Salad,     title: "Fuel your body right",     desc: "Personalized nutrition plans built around your metabolism, not generic templates." },
+  { num: "03", icon: TrendingUp,title: "Results you can see",      desc: "Proven body transformation programs with measurable milestones at every step." },
+  { num: "04", icon: Zap,       title: "Intensity that works",     desc: "CrossFit and HIIT sessions engineered to burn fat and build real endurance fast." },
+  { num: "05", icon: Flame,     title: "Strength without limits",  desc: "Full free-weights zone — barbells, dumbbells to 60kg, cables, power racks." },
+  { num: "06", icon: Wind,      title: "Comfort while you grind",  desc: "Fully air-conditioned facility so nothing stands between you and your best session." },
+  { num: "07", icon: Users2,    title: "A welcoming community",    desc: "Everyone belongs here. Supportive coaches, like-minded members, and a vibe that keeps you coming back." },
+  { num: "08", icon: Activity,  title: "Move better every day",    desc: "Functional training that improves posture, mobility, and real-world performance." },
+  { num: "09", icon: Timer,     title: "On your schedule",         desc: "Open 6 AM – 10 PM, Mon–Sat. Your progress doesn't wait for convenience." },
 ];
 
 export function WhySalus() {
