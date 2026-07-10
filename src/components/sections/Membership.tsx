@@ -40,8 +40,8 @@ const PLANS = [
   {
     id: "halfyearly",
     name: "6 Months",
-    price: 5500,
-    monthlyEq: 917,
+    price: 5000,
+    monthlyEq: 833,
     badge: "Best Value",
     highlight: true,
     features: [
@@ -57,8 +57,8 @@ const PLANS = [
   {
     id: "annual",
     name: "Annual",
-    price: 9500,
-    monthlyEq: 792,
+    price: 9000,
+    monthlyEq: 750,
     badge: "Max Savings",
     highlight: false,
     features: [

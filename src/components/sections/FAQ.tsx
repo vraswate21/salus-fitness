@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: "What memberships are available?",
-    a: "We offer Monthly (₹1,200), 3 Months (₹3,200), 6 Months (₹5,500), and Annual (₹9,500) plans. Student and couple discounts are also available — just ask.",
+    a: "We offer Monthly (₹1,200), 3 Months (₹3,200), 6 Months (₹5,000), and Annual (₹9,000) plans. Student and couple discounts are also available — just ask.",
   },
   {
     q: "Are personal training sessions included?",

@@ -21,7 +21,7 @@ function getResponse(input: string): string {
   const q = input.toLowerCase();
 
   if (q.includes("plan") || q.includes("price") || q.includes("fee") || q.includes("cost") || q.includes("membership")) {
-    return "We have 4 plans:\n• Monthly — ₹1,200\n• Quarterly — ₹3,200\n• Half Yearly — ₹5,500 (Best Value)\n• Annual — ₹9,500\n\nCall 76740 14383 for student/couple discounts!";
+    return "We have 4 plans:\n• Monthly — ₹1,200\n• Quarterly — ₹3,200\n• Half Yearly — ₹5,000 (Best Value)\n• Annual — ₹9,000\n\nCall 76740 14383 for student/couple discounts!";
   }
   if (q.includes("free") || q.includes("trial")) {
     return "Yes! We offer a FREE trial session for first-time visitors. Just walk in or call 76740 14383 to schedule it. No commitment required. 💪";

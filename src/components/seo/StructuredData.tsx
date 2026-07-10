@@ -101,7 +101,7 @@ const localBusiness = {
           "name": "What are the membership plans at Salus Fitness?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Salus Fitness offers 4 plans: Monthly (₹1,200), Quarterly 3 months (₹3,200), Half Yearly 6 months (₹5,500 – Best Value), and Annual (₹9,500). All plans include full gym & cardio access, AC facility, and locker rooms.",
+            "text": "Salus Fitness offers 4 plans: Monthly (₹1,200), Quarterly 3 months (₹3,200), Half Yearly 6 months (₹5,000 – Best Value), and Annual (₹9,000). All plans include full gym & cardio access, AC facility, and locker rooms.",
           },
         },
         {
