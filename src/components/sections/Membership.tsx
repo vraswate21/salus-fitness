@@ -207,7 +207,7 @@ export function Membership() {
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     onClick={() => {
-                      window.open(`https://wa.me/917674014383?text=Hi%2C%20I%27d%20like%20to%20join%20the%20${encodeURIComponent(plan.name)}%20plan%20at%20Salus%20Fitness.`, "_blank");
+                      window.open(`https://wa.me/918686656564?text=Hi%2C%20I%27d%20like%20to%20join%20the%20${encodeURIComponent(plan.name)}%20plan%20at%20Salus%20Fitness.`, "_blank");
                     }}
                     className="w-full py-4 rounded-2xl font-sans font-bold text-[11px] tracking-[0.18em] uppercase flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer border-none"
                     style={

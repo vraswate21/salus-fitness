@@ -66,7 +66,7 @@ export function SEOPage({ eyebrow, h1, h1Gold, description, benefits, extra }: S
               Call 76740 14383
             </a>
             <a
-              href="https://wa.me/917674014383?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Salus%20Fitness"
+              href="https://wa.me/918686656564?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Salus%20Fitness"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 border border-[#128C4A] text-[#128C4A] font-bold text-sm px-8 py-4 rounded-full hover:bg-[rgba(18,140,74,0.08)] transition-colors duration-200 min-h-[52px]"

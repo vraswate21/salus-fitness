@@ -186,7 +186,7 @@ export function Navbar() {
           <Phone size={13} /> Call Now
         </a>
         <a
-          href="https://wa.me/917674014383?text=Hi%2C%20I%27d%20like%20to%20join%20Salus%20Fitness"
+          href="https://wa.me/918686656564?text=Hi%2C%20I%27d%20like%20to%20join%20Salus%20Fitness"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 bg-[#D4AF37] text-[#0A0A0A] text-[12px] font-sans font-black tracking-wider uppercase py-3.5 rounded-full text-center"

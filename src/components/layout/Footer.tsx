@@ -68,7 +68,7 @@ export function Footer() {
                 <ExternalLink size={14} />
               </motion.button>
               {[
-                { href: "https://wa.me/917674014383", icon: MessageCircle, label: "WhatsApp", hover: "hover:border-[#128C4A] hover:text-[#128C4A]" },
+                { href: "https://wa.me/918686656564", icon: MessageCircle, label: "WhatsApp", hover: "hover:border-[#128C4A] hover:text-[#128C4A]" },
                 { href: "tel:7674014383",             icon: Phone,         label: "Phone",    hover: "hover:border-[rgba(150,105,10,0.6)] hover:text-[#96690A]" },
               ].map((s) => (
                 <motion.a
@@ -127,7 +127,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/917674014383" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/918686656564" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#8C8776] hover:text-[#128C4A] transition-colors duration-300">
                   <MessageCircle size={13} className="text-[#128C4A] flex-shrink-0" />
                   <span className="font-body text-sm">WhatsApp Us</span>
@@ -175,7 +175,7 @@ export function Footer() {
             <div className="mt-7 p-4 rounded-xl border border-[rgba(150,105,10,0.15)] bg-[rgba(150,105,10,0.05)]">
               <p className="font-body text-[#8C8776] text-xs mb-3">Get tips & offers on WhatsApp</p>
               <a
-                href="https://wa.me/917674014383?text=Hi%2C%20I%20want%20to%20join%20Salus%20Fitness"
+                href="https://wa.me/918686656564?text=Hi%2C%20I%20want%20to%20join%20Salus%20Fitness"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider py-2.5 rounded-lg hover:bg-[#22C55E] transition-colors duration-300"

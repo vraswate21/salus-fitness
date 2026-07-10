@@ -64,7 +64,7 @@ const localBusiness = {
       "hasMap": "https://maps.google.com/maps?q=Salus+Fitness+Gym+Hyderabad",
       "sameAs": [
         "https://instagram.com/salus_fitnessgym",
-        "https://wa.me/917674014383",
+        "https://wa.me/918686656564",
       ],
       "knowsAbout": [
         "Weight Loss",
