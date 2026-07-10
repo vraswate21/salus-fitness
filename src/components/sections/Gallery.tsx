@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { X } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
@@ -14,6 +15,7 @@ const CARDS = [
     accent: "#D4AF37",
     pattern: "rings",
     size: "tall",
+    photo: "/images/gallery/strength-zone.jpg",
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ const CARDS = [
     accent: "#60A5FA",
     pattern: "waves",
     size: "wide",
+    photo: "/images/gallery/cardio-area.jpg",
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ const CARDS = [
     accent: "#D4AF37",
     pattern: "grid",
     size: "square",
+    photo: "/images/gallery/free-weights.jpg",
   },
   {
     id: 4,
@@ -41,6 +45,7 @@ const CARDS = [
     accent: "#F472B6",
     pattern: "dots",
     size: "square",
+    photo: null,
   },
   {
     id: 5,
@@ -50,6 +55,7 @@ const CARDS = [
     accent: "#34D399",
     pattern: "rings",
     size: "tall",
+    photo: "/images/gallery/crossfit-area.jpg",
   },
   {
     id: 6,
@@ -59,6 +65,7 @@ const CARDS = [
     accent: "#FB923C",
     pattern: "lines",
     size: "wide",
+    photo: null,
   },
   {
     id: 7,
@@ -68,6 +75,7 @@ const CARDS = [
     accent: "#A78BFA",
     pattern: "grid",
     size: "square",
+    photo: "/images/gallery/functional-training.jpg",
   },
   {
     id: 8,
@@ -77,6 +85,7 @@ const CARDS = [
     accent: "#D4AF37",
     pattern: "dots",
     size: "square",
+    photo: null,
   },
 ];
 
@@ -161,10 +170,20 @@ export function Gallery() {
               onClick={() => setSelected(card)}
             >
               {/* Background */}
-              <div className="absolute inset-0" style={{ background: card.bg }} />
-
-              {/* Geometric pattern */}
-              <CardPattern pattern={card.pattern} accent={card.accent} />
+              {card.photo ? (
+                <Image
+                  src={card.photo}
+                  alt={`${card.label} at Salus Fitness Gym`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0" style={{ background: card.bg }} />
+                  <CardPattern pattern={card.pattern} accent={card.accent} />
+                </>
+              )}
 
               {/* Radial glow */}
               <div
@@ -241,26 +260,47 @@ export function Gallery() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Lightbox background */}
-              <div className="absolute inset-0" style={{ background: selected.bg }} />
-              <CardPattern pattern={selected.pattern} accent={selected.accent} />
+              {selected.photo ? (
+                <Image
+                  src={selected.photo}
+                  alt={`${selected.label} at Salus Fitness Gym`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 576px"
+                  className="object-cover"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0" style={{ background: selected.bg }} />
+                  <CardPattern pattern={selected.pattern} accent={selected.accent} />
+                </>
+              )}
 
               {/* Radial glow */}
               <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse at center, ${selected.accent}0D 0%, transparent 70%)` }} />
 
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                <div
-                  className="w-14 h-14 rounded-full border flex items-center justify-center mb-5"
-                  style={{ borderColor: `${selected.accent}40`, background: `${selected.accent}08` }}
-                >
-                  <div className="w-3 h-3 rounded-full" style={{ background: selected.accent }} />
+              {selected.photo ? (
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-center bg-gradient-to-t from-[rgba(0,0,0,0.85)] via-[rgba(0,0,0,0.35)] to-transparent">
+                  <h3 className="font-display font-black text-2xl text-white tracking-[-0.02em] mb-1">
+                    {selected.label}
+                  </h3>
+                  <p className="font-body text-[#CCC] text-sm">{selected.sub}</p>
                 </div>
-                <h3 className="font-display font-black text-3xl text-white tracking-[-0.02em] mb-2">
-                  {selected.label}
-                </h3>
-                <p className="font-body text-[#666] text-sm">{selected.sub}</p>
-                <p className="font-body text-[#333] text-xs mt-4">Salus Fitness · Premium AC Gym</p>
-              </div>
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                  <div
+                    className="w-14 h-14 rounded-full border flex items-center justify-center mb-5"
+                    style={{ borderColor: `${selected.accent}40`, background: `${selected.accent}08` }}
+                  >
+                    <div className="w-3 h-3 rounded-full" style={{ background: selected.accent }} />
+                  </div>
+                  <h3 className="font-display font-black text-3xl text-white tracking-[-0.02em] mb-2">
+                    {selected.label}
+                  </h3>
+                  <p className="font-body text-[#666] text-sm">{selected.sub}</p>
+                  <p className="font-body text-[#333] text-xs mt-4">Salus Fitness · Premium AC Gym</p>
+                </div>
+              )}
 
               {/* Close */}
               <button
