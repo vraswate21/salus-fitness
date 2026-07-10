@@ -38,16 +38,6 @@ const CARDS = [
     photo: "/images/gallery/free-weights.jpg",
   },
   {
-    id: 4,
-    label: "Women's Zone",
-    sub: "Private. Powerful. Yours.",
-    bg: "linear-gradient(135deg, #1A001A 0%, #0D000D 50%, #050005 100%)",
-    accent: "#F472B6",
-    pattern: "dots",
-    size: "square",
-    photo: null,
-  },
-  {
     id: 5,
     label: "CrossFit Area",
     sub: "Functional. Fierce. Fast.",
@@ -58,16 +48,6 @@ const CARDS = [
     photo: "/images/gallery/crossfit-area.jpg",
   },
   {
-    id: 6,
-    label: "HIIT Zone",
-    sub: "Burn more in less time.",
-    bg: "linear-gradient(135deg, #1A0800 0%, #0D0400 50%, #050200 100%)",
-    accent: "#FB923C",
-    pattern: "lines",
-    size: "wide",
-    photo: null,
-  },
-  {
     id: 7,
     label: "Functional Training",
     sub: "Move better. Live stronger.",
@@ -76,16 +56,6 @@ const CARDS = [
     pattern: "grid",
     size: "square",
     photo: "/images/gallery/functional-training.jpg",
-  },
-  {
-    id: 8,
-    label: "Recovery Lounge",
-    sub: "Rest is part of the plan.",
-    bg: "linear-gradient(135deg, #111111 0%, #0A0A0A 100%)",
-    accent: "#D4AF37",
-    pattern: "dots",
-    size: "square",
-    photo: null,
   },
 ];
 
